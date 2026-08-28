@@ -1,0 +1,316 @@
+%%%%
+% Resume template (adapted from MTecknology's Resume)
+% Original author: Michael Lustfield
+% Original license: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage{iftex}
+\ifluatex
+  \usepackage{luatex85} % restores pdfTeX primitives (\pdfglyphtounicode etc.) needed below
+\fi
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{ragged2e}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\ifpdftex
+  \usepackage{charter}
+\else
+  \setmainfont{XCharter} % OpenType Charter equivalent; CormorantGaramond forces fontspec's TU encoding, where the classic `charter` package silently falls back to Latin Modern
+\fi
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\scshape\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\scshape\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+\newcommand{\subheading}[2]{
+  \heading{\underline{#1}}{\underline{#2}}
+}
+
+\newcommand{\subtext}[1]{
+  \hspace{10pt}#1
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% [YOUR_NAME]'s Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{[YOUR_HEADLINE]}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \faIdBadge\space [YOUR_NAME]
+    \href{tel:[YOUR_PHONE_TEL]}{
+      \raisebox{-0.05\height} \faPhone\ [YOUR_PHONE]} ~
+    \href{mailto:[YOUR_EMAIL]}{
+      \raisebox{-0.15\height} \faEnvelope\ [YOUR_EMAIL]} ~
+    \href{[YOUR_LINKEDIN_URL]}{
+      \raisebox{-0.15\height} \faLinkedin\ [YOUR_LINKEDIN_URL]} ~
+    %\href{https://github.com}{
+      %\raisebox{-0.15\height} \faGithub\ github.com}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \begin{justify}
+  \tinysection{Summary}
+    [YOUR_SUMMARY]
+
+    \end{justify}
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Technical Competencies}
+  \begin{multicols}{2}
+    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=-2px, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+      \item[\textbf{[SKILL_CATEGORY_1]:}] [SKILL_LIST_1]
+      \item[\textbf{[SKILL_CATEGORY_2]:}] [SKILL_LIST_2]
+      \item[\textbf{[SKILL_CATEGORY_3]:}] [SKILL_LIST_3]
+      \columnbreak
+      \item[\textbf{[SKILL_CATEGORY_4]:}] [SKILL_LIST_4]
+      \item[\textbf{[SKILL_CATEGORY_5]:}] [SKILL_LIST_5]
+      \item[\textbf{[SKILL_CATEGORY_6]:}] [SKILL_LIST_6]
+    \end{itemize}
+  \end{multicols}
+
+
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Recent Experience}
+
+  \headingBf{[COMPANY_1] | [DEPARTMENT_1]}{[START_DATE_1] -- [END_DATE_1]}
+  \headingIt{[JOB_TITLE_1]}{}
+  \begin{resume_list}
+      \item [ACHIEVEMENT_1_1]
+      \item [ACHIEVEMENT_1_2]
+  \end{resume_list}
+
+  \headingBf{[COMPANY_2] | [DEPARTMENT_2]}{[START_DATE_2] -- [END_DATE_2]}
+  \headingIt{[JOB_TITLE_2]}{}
+  \begin{resume_list}
+      \item [ACHIEVEMENT_2_1]
+      \item [ACHIEVEMENT_2_2]
+
+  \end{resume_list}
+
+  \headingBf{[COMPANY_3] | [DEPARTMENT_3]}{[START_DATE_3] -- [END_DATE_3]}
+  \headingIt{[JOB_TITLE_3]}{}
+  \begin{resume_list}
+      \item [ACHIEVEMENT_3_1]
+      \item [ACHIEVEMENT_3_2]
+
+  \end{resume_list}
+
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{[UNIVERSITY_1]}{[EDU_START_1] -- [EDU_END_1]}
+  \headingIt{[DEGREE_1]}{}
+  \begin{resume_list}
+      \item [EDU_TOPICS_1]
+  \end{resume_list}
+
+  % \subheading{Master thesis}{}
+  % \subtext{Thesis subject: [...]\\\hspace{10pt}\textit{[...]}}
+  % \vspace{8pt}
+
+  \headingBf{[UNIVERSITY_2]}{[EDU_START_2] -- [EDU_END_2]}
+  \headingIt{[DEGREE_2]}{}
+  \headingIt{[SPECIALIZATION_2]}{}
+  \begin{resume_list}
+      \item [EDU_TOPICS_2]
+  \end{resume_list}
+  %\headingIt{Minors: [...]}{}
+
+
+  %\vspace{5pt}
+  %\headingBf{Certifications}{}
+  %\begin{resume_list}
+  %  \item [CERT_1]
+  %  \item [CERT_2]
+  %\end{resume_list}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Extracurricular activities}
+
+  \headingBf{[ORGANIZATION_1]}{[EXTRA_START_1] -- [EXTRA_END_1]}
+  \subtext{[ROLE_1]}
+    \begin{resume_list}
+      \item [EXTRA_DESCRIPTION_1]
+  \end{resume_list}
+    \headingBf{[ORGANIZATION_2]}{[EXTRA_START_2] -- [EXTRA_END_2]}
+  \subtext{[ROLE_2]}
+    \begin{resume_list}
+      \item [EXTRA_DESCRIPTION_2]
+  \end{resume_list}
+
+  % \section{About me}
+  % \begin{justify}
+  % \hspace{10pt}%
+
+  % \end{justify}
+\end{document}

@@ -1,0 +1,51 @@
+Data engineering
+
+As Junior Data Scientist 
+
+Building queries and ETL processes for on demand data requests in the business. While additionally building flows to feed into dashboards for further analysis to support the business. 
+
+As Medior Data Scientist 
+
+At Sawiday I have been working on building up a data warehouse. Originally all the data was in AWS and owned by the IT team and used for dashboarding in Tableau. This make it things slow due to the large amount of processing in Tableau. By moving it into a Data warehouse this made it more efficient and more room for customization. This is done by using dataform to create custom data marts and reporting tables.
+
+To gather data I have made connections through API and webhook connections through the use of Google Cloud Run/Jobs. Setting up automated processes to ensure data is gathered. Working on building connections between different systems like our ERP, Zendesk, Dyflexis, BigQuery, etc. 
+
+ROPO bridge
+Leveraging Google Tag manager to gather more rich customer data by collecting first party data. With the use of this first party data I build a Research Online - Purchase Offline (ROPO) bridge to create insights into customer behaviour. This is 50% of Sawiday's business and nobody had any details insight before my work. Build on this I created insights into the specific journeys through the website, comparing online vs offline purchase behaviour, by highlighting parts of the website that were visited by each group. Comparing the lift in products and product profiles that match each groups interest to get a grip on orientation products. 
+
+Data analysis
+
+As Junior Data Scientist 
+
+HR Dyflexis Automation
+Pulls registered and scheduled hours from the Dyflexis Business API, enriches them with HR reference data, and applies a library of rule-based checks.
+Splits the resulting flags by responsible checker, sends Outlook emails through Microsoft Graph, and stores auditable outputs and log files.
+Built for weekly or period-based controls following the 4-4-5 salary calendar used at Sawiday.
+
+End-to-end pipeline: Fetch, clean, flag, and notify in a single run (hr_dyflexis/pipeline.py).
+Rich anomaly catalog: Detects missing registrations, break-rule violations, overtime outliers, parental leave anomalies, contract mismatches, holiday work, and more.
+Dynamic routing: Maps each flag to the correct checker based on location/department responsibility and falls back to HR by default.
+Auditable outputs: Persists formatted logs and optional CSV exports, plus Dyflexis deep links for manual follow-up.
+
+
+Data Modelling
+
+As Junior Data Scientist
+
+This repository contains the work of Lars Briels regarding his Master Thesis. In this thesis a Process-Aware Recommendation System (PARS) was created that predicts if an online customer on an e-commerce platform is likely to engage with the offline showrooms. If so, the system intervenes in the online customer journey by showing a personalised pop-up.
+
+The original implementation was owned by IT and died quitely. I subsequently adapted the setup to run fully in the cloud, connected it to send predictions to the marketing tool Spotler and found data leakage in orignal approach. This subsequently lead to the need for a rework and later on ROPO project.
+
+As Medior Data Scientist 
+
+multi-touch attribution (MTA)
+Building a Multi-touch attribution model in collaboration with external data science consultants. We build an extensive markov-chain model from end-to-end. I spoke with the marketing team to get the data quality up and force standardization in UTM tagging. Got access to all marketing platforms to build pipelines to gather cost, and results(clicks, impressions) into staging tables. Build staging tables for customer journey analysis. Supported the model building in R, reviewed pull-requests, gave feedback and brainstormed with the consultants. Ensured that stakeholders were informed, planned meetings, followed up on planning in Jira, gave presentations and trainings on the use of the data. Transferred the pipeline from Vertex environment to cloud runs connected to Tableau dashboards for automated data updates. 
+
+Transport costs
+Before the project there was no idea of the transport costs for shipments before they took place. There are 4 differen transporters with each their own cost structure. Two parcel based with surcharges when specific dimensions exceeded, one pallet based for large shipments making it a vector based prediction problem as costs differ per combination, and one that has costs based on the volumetric mass. With limited data on dimensions mainly focussed on the end consumer extensive analysis was needed to find the tipping points for the model. Futher discussions with the warehouse team made for further rules to improve the model. I am currently working on this. The impact is yet to be shown. 
+
+
+Extracurricular work 
+Gave a talk on the triangulation of marketing measurement. Measurement triangulation combines multi-touch attribution (MTA), incrementality testing and marketing mix modeling (MMM) to give you a much more holistic and comprehensive understanding of marketing performance. https://lnkd.in/p/e5Xm2W4h
+
+Visited Mahchine learning summits to extend my grasp of knowledge and what is going on in the industry https://lnkd.in/p/esWkfKD9

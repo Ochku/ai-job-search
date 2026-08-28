@@ -33,7 +33,63 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 **R:** [OUTCOME]
 **Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
 
+### 4. Owning inventory-transfer reporting while manager was on leave (Amazon)
+**S:** As a Financial Analyst on Amazon's SCOT IPC Finance team, I was working on a deep-dive into inventory transfer costs at lane-level granularity. My manager then went on a 3-week holiday right as the project moved into its most complex phase, and separately a senior project manager from another team challenged our team's cost-base methodology for the transfer decks.
+**T:** I had to take full ownership of the weekly reporting cadence to a group of senior and tenured stakeholders (including a weekly report to a Sr. VP), while also independently resolving the methodology challenge without my manager available.
+**A:** I onboarded new data sources and built queries with our BIE (business intelligence engineer) to get lane-level cost data down to the specific transfer, validated the approach with two other teams, and kept updating and presenting three weekly decks on my own. When challenged on the cost-base methodology, I set up meetings directly with the senior project manager, walked him through our approach, and worked through the disagreement to alignment.
+**R:** I was publicly recognized by the team's overall manager for handling the audit independently, and my colleague's written feedback noted I was "consistent on this delivery and high bar, even when his manager was OOTO for an extended period." The reporting scope I owned was later expanded to include the EU, Canadian, and Indian marketplaces.
+**Use for:** "Tell me about a time you took ownership under pressure", "Describe handling conflict or being challenged by a stakeholder", "Tell me about working with high autonomy"
+
+### 5. Fixing a flawed cost model with a $300M impact (Amazon)
+**S:** While building out standardized financial entitlement models for Amazon's SCOT IPC Finance team, I noticed the existing methodology assumed a flat cost benefit regardless of the improvement percentage achieved (e.g., the same benefit for a 0-1% improvement as an 80-81% improvement), which didn't reflect reality.
+**T:** I needed to validate whether this was a real flaw and, if so, propose and justify a better methodology to stakeholders who relied on these numbers for financial entitlement decisions.
+**A:** I analyzed the existing regression, identified that a per-percentage-point weighting made more sense, and proposed switching to a polynomial regression instead. I also proposed actively cleaning the underlying data (removing constant 0%/100% outliers) to reduce noise, and got sign-off from the methodology's original owner before rolling it out.
+**R:** The change was adopted and is estimated to have impacted one project by $300 million, and the data-cleaning proposal was also accepted and applied more broadly. I also separately caught a second methodological flaw (a misapplied "constant is zero" R² calculation) in a related model and flagged it for review.
+**Use for:** "Tell me about a time you found and fixed a mistake others missed", "Tell me about a project with measurable business impact", "Describe a time you had to challenge an existing process"
+
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
+
+## STAR Candidates (Complete Manually)
+
+### Promotion: Junior → Medior Data Scientist at Sawiday
+**Source:** LinkedIn - Sawiday
+**What happened:** Promoted from Junior to Medior Data Scientist after roughly 14 months (April 2025 to June 2026).
+**Why it matters:** Answers "tell me about a time you grew quickly in a role" or "why should we hire you at this level".
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Co-Owner, YoungViews
+**Source:** LinkedIn - YoungViews (May 2020 - April 2021)
+**What happened:** Co-owned and ran a business for about a year.
+**Why it matters:** Answers questions about ownership, initiative, entrepreneurship, or working without a manager.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Career pivot: Finance → Data Science
+**Source:** LinkedIn timeline - Financial Analyst roles (ING Belgium, Amazon) followed by Tilburg University MSc Data Science and Society and subsequent Data Scientist roles
+**What happened:** Moved from financial analyst positions into a structured career change toward data science via a pre-master and master's degree.
+**Why it matters:** Answers "why did you change careers" or "why should we trust you in this new field" - a common friction point in career-change interviews.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Master's thesis: Music Genre Classification Using Time Series Classifiers
+**Source:** Tilburg University MSc thesis (Dec 2024), grade 7.5, judicium "met genoegen"
+**What happened:** Designed and ran a comparative study benchmarking CNNs (VGG19, ResNet152V2, DenseNet169 via transfer learning) against two SOTA time series classifiers (HIVE-COTE 2.0, MultiRocket+Hydra) on the Free Music Archive dataset, including hyperparameter tuning with Optuna, systematic sampling-rate experiments, and computational efficiency analysis (training time, memory, accuracy trade-offs) under real hardware/memory constraints (GPU vs. CPU-only TSC training, HC2 runs up to 22 hours).
+**Why it matters:** Strong evidence for "tell me about a data science project end-to-end," "how do you approach model selection," "tell me about working under resource constraints," or technical deep-dive questions on deep learning/time series methods.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result: VGG19 (MSpec features) achieved best accuracy (43.4%) and by far the best computational efficiency (~3 min vs. up to 22 hours for HC2), demonstrating that industry-standard CNN transfer learning outperformed newer time series classifiers on this task while being far more practical to deploy.
 
 ## Common Tough Questions
 

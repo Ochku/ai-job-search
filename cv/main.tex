@@ -1,0 +1,323 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{ragged2e}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\scshape\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\scshape\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+\newcommand{\subheading}[2]{
+  \heading{\underline{#1}}{\underline{#2}}
+}
+
+\newcommand{\subtext}[1]{
+  \hspace{10pt}#1
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% John Doe's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{MSc in Data Science with background\\\vspace{5pt} in International Business and Finance}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \faIdBadge\space Steff Vleeshouwers
+    \href{tel:+31623521660}{
+      \raisebox{-0.05\height} \faPhone\ +31 6 23521660} ~
+    \href{mailto:s.vleeshouwers@outlook.com}{
+      \raisebox{-0.15\height} \faEnvelope\ s.vleeshouwers@outlook.com} ~
+    \href{https://www.linkedin.com/in/steff-vleeshouwers}{
+      \raisebox{-0.15\height} \faLinkedin\ https://www.linkedin.com/in/steff-vleeshouwers} ~
+    %\href{https://github.com}{
+      %\raisebox{-0.15\height} \faGithub\ github.com}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \begin{justify}
+  \tinysection{Summary}
+    Graduated with distinction from Tilburg University specialized in Data Science combined with a strong background in finance and business. Passionate about leveraging AI and machine learning to drive data-driven decision-making and solve real-world challenges. Experienced in implementing algorithms using both toolkits and self-developed code, bridging the gap between technology and business objectives.
+    
+    \end{justify}
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Technical Competencies}
+  \begin{multicols}{2}
+    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=-2px, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+      \item[\textbf{Languages:}] Python, SQL, Git 
+      \item[\textbf{Deep Learning:}] PyTorch, TensorFlow, \newline HuggingFace Transformers.
+      \item[\textbf{Other tools:}] Numpy, Scikit-Learn, Scikit-time, Aeon, Matplotlib, Seaborn, BeautifulSoup.
+      \columnbreak
+      \item[\textbf{OS:}] Windows, Linux (basic knowledge).
+      \item[\textbf{Theoretical knowledge:}] NLP, Spatiotemporal Analysis, Image Analysis, Machine Learning, deep learning, ETL.
+      \item[\textbf{Dashboarding:}] Tableau.
+      % \item[\textbf{General languages:}] Dutch, English, German, \newline Danish (beginner)
+    \end{itemize}
+  \end{multicols}
+
+
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Recent Experience}
+
+  \headingBf{Philips | Advanced Research and Development}{Nov 2024 -- Mar 2025}
+  \headingIt{AI/Data Science Intern}{}
+  \begin{resume_list}
+      \item Developed end-to-end data science pipelines from raw data processing and exploratory analysis to feature engineering, model prototyping, and on-device deployment.
+      \item Redesigned and optimized an on-device dashboard for a baby monitor camera, improving user experience and device functionality.
+      % \item Developed a breathing algorithm for anomaly detection, alerting parents of child sickness.
+  \end{resume_list}
+
+  \headingBf{Amazon | Supply Chain Optimization Technology}{Jan 2023 -- Jun 2023}
+  \headingIt{Financial Data Analyst Intern}{}
+  \begin{resume_list}
+      \item Built a regression model to predict financial value for product groups, improving stock-level decisions and reducing overstock.
+      \item Managed SQL-based data pipeline for financial data, ensuring quality, standardization, and auditability via a centralized wiki.
+
+  \end{resume_list}
+  
+  \headingBf{ING | Wholesale Banking, Transport and Logistics}{Feb 2022 -- Aug 2022 | Jul 2023}
+  \headingIt{Financial Analyst Intern}{}
+  \begin{resume_list}
+      \item Developed financial models for transaction structuring improving decision-making processes.
+      \item Conducted sensitivity analyses using historical data, enhancing portfolio management.
+
+  \end{resume_list}
+
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{Tilburg University}{Sep 2023 -- Feb 2025} % Note: Adding year(s) exposes an implied age
+  \headingIt{MSc Data Science and Society}{}
+  \begin{resume_list}
+      \item Machine Learning, Deep Learning, NLP, AI, Statistics.
+  \end{resume_list}
+  
+  % \subheading{Master thesis}{}
+  % \subtext{Thesis subject: Large language models and truthfulness - exploring methods for mitigating hallucinations.\\\hspace{10pt}\textit{Here I also discovered an optimized approach to backpropagation that saves up to 50\% VRAM with minimal drawbacks.}}
+  % \vspace{8pt}
+
+  \headingBf{HAN University of Applied Sciences}{Sep 2019 -- Jun 2023} % Note: Adding year(s) exposes an implied age
+  \headingIt{BSc International Business}{}
+  \headingIt{Specialisation: Finance}{}
+  \begin{resume_list}
+      \item Business Intelligence, Data Analysis, Statistics, Corporate finance, Accountancy.
+  \end{resume_list}
+  %\headingIt{Minors: Networking ; Network Security}{}
+
+
+  % \headingBf{Technical University of Denmark}{Sep 2019 -- Jun 2022} % Note: Adding year(s) exposes an implied age
+  % \headingIt{BSc Mathematics and Technology}{}
+  % \headingIt{Minors: Computer Science/Software}{}
+  % \begin{resume_list}
+  %     \item Applied mathematics, Software Engineering, Machine Learning. 
+  % \end{resume_list}
+  % \headingBf{Technical University of Denmark}{Sep 2018 -- Jun 2019} % Note: Adding year(s) exposes an implied age
+  % \headingIt{BSc General Engineering}{}
+  % \headingIt{I transferred to Mathematics and Technology after one year as I felt it was better aligned with my educational goals.}{}
+
+
+
+  %\vspace{5pt}
+  %\headingBf{Certifications}{}
+  %\begin{resume_list}
+  %  \item Salt \hspace{2pt}- SaltStack Certified Engineer
+  %  \item GCP - Professional Cloud Architect
+  %\end{resume_list}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Extracarricular activities}
+
+  \headingBf{OJC Merlin}{Sep 2017 -- Present}
+  \subtext{Volunteer}
+    \begin{resume_list}
+      \item Managing event logistics and cash audits to ensure smooth operations and financial accuracy.
+  \end{resume_list}
+    \headingBf{YoungViews}{May 2020 -- Apr 2021}
+  \subtext{Co-owner}
+    \begin{resume_list}
+      \item Consulted SMEs on expanding their online presence during the COVID-19 pandemic.
+  \end{resume_list}
+
+  % \section{About me}
+  % \begin{justify}
+  % \hspace{10pt}%
+
+  % \end{justify}
+\end{document}

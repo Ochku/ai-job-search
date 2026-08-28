@@ -1,5 +1,18 @@
 # CV Templates and Tailoring Guide
 
+<!-- BEGIN ACTIVE-TEMPLATE (managed by /add-template - do not edit by hand) -->
+> **Active template override: `mikkel-template`**
+>
+> A custom template is active. Where this block conflicts with the stock guidance below, this block wins. Structural advice below (tailoring, page-budget, cutting rules) still applies.
+>
+> - **Template skeleton:** `templates/cv/mikkel-template/template.tex` — use this as the structural reference instead of the stock template
+> - **Manifest:** `templates/cv/mikkel-template/TEMPLATE.md` — read this for style rules and known pitfalls before drafting
+> - **Compile with:** `lualatex` (not the engine named in the stock guidance below — though it also happens to be lualatex here)
+> - **Fonts:** CormorantGaramond + charter, both standard TeX-distribution font packages (no bundled files, no install needed on a full TeX distribution). Note: `template.tex` already patches font loading for engine compatibility (`luatex85` for `\pdfglyphtounicode`, `XCharter` via fontspec in place of `charter` under lualatex/xelatex) — do not remove those patches.
+> - **Page limit:** exactly 1 page
+> - **Output file:** unchanged (`cv/main_<company>.tex`); no extra class/font files need to be copied to the output directory
+<!-- END ACTIVE-TEMPLATE -->
+
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
 
 ## Template: LaTeX moderncv (Banking Style)
@@ -69,6 +82,10 @@ Expected output: `Output written on main_<company>.pdf (2 pages, ...)`. Any page
 ### Color overrides
 
 The three `\renewcommand*` lines in the preamble are required on lualatex+MiKTeX. Without them the firstname, lastname, and section headings render in black even though `\moderncvcolor{blue}` is set, which looks inconsistent with the rest of the blue accent scheme (links, bullet markers, contact icons). The override forces all three to use `color1` (moderncv's accent colour, which becomes blue under `\moderncvcolor{blue}`). Both names render bold; if you prefer the firstname in regular weight, change the firstnamestyle override from `\bfseries` to `\mdseries`. Don't drop the override - on most modern installs the defaults render visibly wrong.
+
+### Never wrap placeholder or bullet text in square brackets inside `itemize`
+
+LaTeX's `\item` command treats a `[...]` immediately following it as an optional custom-label argument, not literal text. `\item [Responsibility or achievement 1]` silently truncates most of the bracketed text (it gets typeset as a narrow left-margin label and overflows), producing a broken-looking bullet and an `Overfull \hbox` warning at that line. This bit a placeholder-bullet draft of `main_example.tex` in Aug 2026 - the fix is to never open a bullet's text with `[`; write plain text (`\item Responsibility or achievement 1 -- to be added`) instead, even for TODO-style placeholders.
 
 ### Spacing inside itemize lists (important)
 
