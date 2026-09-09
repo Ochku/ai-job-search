@@ -4,52 +4,56 @@
 <!-- You can use results from PI, DISC, Myers-Briggs, StrengthsFinder, or a self-assessment -->
 
 ## Overview
-[YOUR_NAME]'s behavioral assessment identifies them as a **[PROFILE_TYPE]** pattern. [1-2 SENTENCE_SUMMARY].
+*(Self-assessed from work history and reflection - no formal instrument (PI/DISC/MBTI/StrengthsFinder) taken yet. Replace this section if that changes.)*
 
-## Core Behavioral Drives
-
-| Drive | Level | Meaning |
-|-------|-------|---------|
-| [DRIVE_1] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_2] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_3] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_4] | [LEVEL] | [DESCRIPTION] |
+Steff's pattern across every role in this profile is best described as an **autonomous problem-translator**: repeatedly pulled into ambiguous, cross-functional problems with no existing technical spec, works out the scope and stakeholders largely alone, then delivers a concrete technical solution and explains it back to the business in plain terms. The recurring cost of that pattern - self-driven scoping/estimation eating into technical time - shows up just as consistently as the strength itself, and is tracked explicitly in Growth Areas below rather than glossed over.
 
 ## Strongest Behaviors
-- **[BEHAVIOR_1]:** [DESCRIPTION]
-- **[BEHAVIOR_2]:** [DESCRIPTION]
-- **[BEHAVIOR_3]:** [DESCRIPTION]
+- **Long-term, reliable community commitment** *(self-assessed - OJC Merlin youth centre, ~7 years)*: Sustained volunteer involvement across roughly 7 years, including being trusted with sole responsibility for the cash audit - a pattern of being handed real accountability early and following through, independent of any professional incentive. Parallels the trust shown in the ING GDPR-cleaning lead and the Amazon VP-facing reporting ownership below.
 - **Ownership under ambiguity** *[Inferred from Amazon internship portfolio - review before relying on this]*: Took full ownership of stakeholder-facing weekly reporting for 3 weeks while manager was on leave, and independently resolved a methodology challenge from a senior manager on another team. Colleague quote: "He was consistent on this delivery and high bar, even when his manager was OOTO for an extended period."
 - **Proactive feedback-seeker** *[Inferred from Amazon internship portfolio]*: Colleague quote: "Steff has been proactive on asking for feedback, for instance on callouts in emails before sending to our business partners. He's receptive to this feedback and even follows up with questions to better understand it as needed."
 - **Analytical rigor / catches what others miss** *[Inferred from Amazon internship portfolio]*: Identified and corrected two separate flaws in existing financial regression methodologies (one with an estimated $300M impact) that had gone unquestioned by the team.
+- **Reframes the question instead of answering it as asked** *[Inferred from Sawiday product-association audit]*: When asked which algorithm to use for a basket-mismatch warning tool, first measured the actual revenue impact of existing suggestion blocks (7.7% presence vs. 0.38% caused) and redirected the initiative from algorithm selection to the underlying data-quality constraint - also halting an already-scoped A/B testing programme once the analysis showed it was moot. Mirrors the same pattern as the Amazon regression-methodology callout above, now recurring at a second company.
+- **Drives structural fixes without being asked** *[Inferred from Sawiday professionalization work]*: Became the company's sole data scientist after the only other DS left, then independently identified and fixed governance gaps - credentials previously committed to GitHub, disputed ownership between IT and Data Science - introducing secrets management, CI/CD, linting and package-management practices with no mandate to do so.
+- **Time-boxes low-ROI commitments** *[Inferred from Sawiday AI business club]*: Proactively exited a cross-company AI working group once workload made it unsustainable and the group lacked the expertise to be worth the continued time investment - treated as a deliberate prioritization call, not an unfinished commitment.
+- **Translates ambiguous business asks into technical specs (internal-consultant pattern)** *(self-assessed - recurring across Philips Avent and Sawiday, both roles without a technical lead)*: Absent a technical lead to hand off scoping, repeatedly ended up functioning like an internal consultant - interpreting an ambiguous business ask, working out an approach, and identifying who needed to be involved, before any technical work started. A byproduct of working in under-resourced/unstructured environments, but a transferable strength for roles that need someone to bridge business stakeholders and technical delivery.
+- **Recognizes and raises role/scope drift rather than absorbing it silently** *[Inferred from Sawiday Zendesk AI project]*: After stepping up to lead a stalled Zendesk AI ticket-automation integration (system prompts, external-partner liaison, supporting a product-owner hire) for a department outside Data Science, proactively raised with the manager that the role had drifted into de facto project/product ownership of a system with no structural connection to Data Science - the manager agreed and scoped the role back to a technical-stakeholder advisory position. A concrete instance of catching scope creep and course-correcting through direct communication rather than continuing to absorb it.
+- **Shares expertise publicly / externally recognized on the topic** *(verified via LinkedIn - DATA2026, Jan 22 2026)*: Added as an extra/late speaker at DATA2026 (Eye Museum, Amsterdam) at the organizer's request, presenting the practical side of MMM and MTA rather than the methodology or hype - external validation that the expertise built at Sawiday is seen as credible outside the company, at Junior-level tenure.
 
 ## How You Work Best
-- [ENVIRONMENT_PREFERENCE_1]
-- [ENVIRONMENT_PREFERENCE_2]
-- [ENVIRONMENT_PREFERENCE_3]
 <!-- - **Thrives under pressure and in fast-paced, dynamic environments** *[Inferred from ING/Amazon internship portfolios - candidate's own words: "I thrive under pressure, and I love the international environment and scale"]* -->
 - **Comfortable working autonomously with minimal oversight once ramped up** *[Inferred from Amazon internship portfolio - repeated pattern across projects of moving from guided onboarding to full autonomous ownership within weeks]*
+- **Proactively invests in staying current with the field** *(self-assessed - Sawiday)*: Attended machine learning industry summits and a cross-company AI working group outside day-to-day project work to track developments in the field.
+- **Drawn to ambiguous, business-facing problems over pre-defined technical tickets** *[Inferred across the full Sawiday and Philips Avent project history]*: Nearly every project cited across both roles (B2B scraper, product-association audit, ROPO bridge, Zendesk AI, illness-detection model) started as an open business question with no existing technical spec, not a scoped-out backlog item - a consistent pattern, not a one-off.
+- **Prefers small/lean teams where impact is visible and ownership is real, over siloed IC roles** *[Inferred from Sawiday - sole data scientist for most of tenure, and the internal-consultant pattern above]*: Repeatedly ended up owning outcomes end-to-end (data warehouse, MTA, HR automation, Zendesk) rather than a narrow slice of a larger pipeline.
 
 ## Growth Areas (frame positively in applications)
-- **[AREA_1]:** [HOW_TO_FRAME_IT_POSITIVELY]
+- **Perfectionism / over-engineering under ambiguity** *(self-assessed - Sawiday image-generation project)*: Initially built extensive, unique pipelines per AI vendor/model while chasing polished output, rather than shipping a fast MVP to get business feedback early. Reframe positively as: now deliberately ships modular, swappable pipelines and fast MVPs first, reserving deeper builds for after directional feedback - a corrective learned through direct reflection, not imposed.
 - **Formal project planning / backlog discipline** *(self-assessed)*: Tools like Jira tend to get deprioritized in favor of just working the project directly, especially in roles without a technical lead or firm deadlines (current Sawiday role; also true of the R&D-style Philips Avent internship, which had almost no deadlines). Frame positively as: strongly execution-biased and self-directed, able to deliver working results with minimal oversight or structure - now actively developing lighter-weight planning habits so that same drive translates cleanly into environments with multiple stakeholders or firmer delivery cadences.
+- **Self-driven project scoping/estimation without technical oversight** *(self-assessed - Philips Avent and Sawiday, both roles without a technical lead)*: In both roles, had to independently work out project scope, realistic timelines, and who needed to be involved, with own time estimates consistently running longer than expected - real time went to figuring out "what to do and how," not to technical work itself. Frame positively as: built genuine project-scoping and stakeholder-mapping skill through necessity; now actively sharpening up-front estimation so that skill compounds instead of costing time, and looks for teams/roles with enough structure or a technical lead to sanity-check scope before it eats into delivery.
 
 ## Mapping to Job Posting Language
 
 When a job posting mentions these keywords, it's a **strong behavioral fit**:
-- [KEYWORD_OR_PHRASE_THAT_MATCHES_YOUR_STYLE]
-- [ANOTHER_KEYWORD]
+- "ambiguous scope" / "0-to-1" / "build from scratch" / "greenfield"
+- "autonomous" / "self-directed" / "own your roadmap"
+- "cross-functional stakeholder management" / "translate business requirements into technical solutions"
+- "wears many hats" / "small, lean data team" / "first data hire"
+- "communicate data science results to non-technical audiences" / "data storytelling"
+- "professionalize" / "bring structure to" / "modernize the data function"
 
 When a job posting mentions these, flag as **potential friction** (not deal-breaker):
-- [KEYWORD_OR_PHRASE_THAT_MIGHT_CLASH]
-- [ANOTHER_KEYWORD]
+- Heavy, formal Scrum/Jira backlog discipline as a core expectation - matches a genuine, named growth area rather than a strength
+- "Sole data scientist" / "no technical lead" as a *permanent* structure rather than a temporary phase - proven capable of it twice (Philips, Sawiday), but self-identified as a real time/energy cost; a strong fit only if paired with at least a part-time technical lead, data engineer, or senior peer to sanity-check scope
+- Narrowly scoped IC execution role with no stakeholder-facing or scoping component - mismatches the actual strength pattern (internal-consultant / translator role)
 
 ## Management Style Preferences
-- [WHAT_MANAGEMENT_STYLE_WORKS_FOR_YOU]
-- [WHAT_DOESN'T_WORK]
+- **What works:** Light-touch on execution, more hands-on at the scoping gate - wants scope and estimates sanity-checked by a technical lead or senior peer before starting, then autonomy to build once that's set
+- **What doesn't work:** Being the sole technical resource for a function indefinitely with no peer or lead to validate scope/estimates - not a capability gap (handled it twice), but a named drain that erodes time available for technical work
+- **Benefits from a technical lead or senior peer to sanity-check scope and estimates** *(self-assessed - Philips Avent and Sawiday)*: Fully capable of driving ambiguous projects independently end-to-end, but in both roles without a technical lead, self-estimated timelines ran long and time was lost re-deriving approach and stakeholders from scratch. Doesn't need close supervision of execution - benefits specifically from someone to validate scope/estimates up front, not oversee the work itself.
 
 ## Using This in Applications
-- **Cover letters:** [HOW_TO_WEAVE_IN_BEHAVIORAL_STRENGTHS]
-- **CV:** [WHAT_TO_EMPHASIZE]
-- **Interviews:** [WHAT_STAR_EXAMPLES_TO_USE]
-- **Don't overstate:** [WHAT_NOT_TO_CLAIM]
+- **Cover letters:** Lead with one concrete, quantified story (ROPO bridge ~€1.7M/month, B2B scraper 100k+ leads/20 sales, or the product-association 7.7%→0.38% reframe) rather than generic trait claims; reach for the "translates ambiguous business asks into technical specs" framing whenever the role sits between technical and business stakeholders.
+- **CV:** Let the quantified Sawiday/Amazon bullets carry the story - they already show ownership, analytical rigor, and reframing without needing separate soft-skill lines.
+- **Interviews - best STAR examples:** the product-association audit (analytical reframing, killed a moot A/B programme), the Zendesk AI project (caught scope drift and course-corrected with a manager), the professionalization work (drove fixes with no mandate), and the DATA2026 speaking invite (external validation at junior-level tenure).
+- **Don't overstate:** Was not the primary author of the R-based Markov-chain model at Sawiday - reviewed and steered it, didn't build it; keep that distinction precise if asked. Scoping/estimation is a named, real growth area, not yet a strength - don't claim polished PM/planning chops without the caveat.

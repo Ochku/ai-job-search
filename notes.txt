@@ -45,7 +45,9 @@ Transport costs
 Before the project there was no idea of the transport costs for shipments before they took place. There are 4 differen transporters with each their own cost structure. Two parcel based with surcharges when specific dimensions exceeded, one pallet based for large shipments making it a vector based prediction problem as costs differ per combination, and one that has costs based on the volumetric mass. With limited data on dimensions mainly focussed on the end consumer extensive analysis was needed to find the tipping points for the model. Futher discussions with the warehouse team made for further rules to improve the model. I am currently working on this. The impact is yet to be shown. 
 
 
-Extracurricular work 
+Extracurricular work during all time at Sawiday
 Gave a talk on the triangulation of marketing measurement. Measurement triangulation combines multi-touch attribution (MTA), incrementality testing and marketing mix modeling (MMM) to give you a much more holistic and comprehensive understanding of marketing performance. https://lnkd.in/p/e5Xm2W4h
 
 Visited Mahchine learning summits to extend my grasp of knowledge and what is going on in the industry https://lnkd.in/p/esWkfKD9
+
+Visited Ecommerce AI club lunch and learn

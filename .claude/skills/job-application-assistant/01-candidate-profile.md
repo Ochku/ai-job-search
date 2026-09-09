@@ -9,7 +9,6 @@
 - **Phone:** +31623521660
 - **Email:** s.vleeshouwers@outlook.com
 - **LinkedIn:** https://www.linkedin.com/in/steffvleeshouwers
-- **GitHub:** [YOUR_GITHUB_URL]
 - **Languages:** Dutch (native), English (fluent), German (B2), Danish (B1)
 - **Status:** Employed (Medior Data Scientist, Sawiday) - actively job-searching
 - **Constraints:** Relocating to Denmark to be with partner - open to full relocation; Danish B1 and improving
@@ -27,15 +26,20 @@
 
 ### Medior Data Scientist - Sawiday (June 2026 - Present)
 Rosmalen, North Brabant, Netherlands
-- [RESPONSIBILITY_OR_ACHIEVEMENT_1]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_2]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_3]
+- Led cross-functional design and delivery of a company-wide data warehouse (coordinating with IT, the team's data analyst, and an external data engineer from The Data Story) to consolidate external and internal data behind consistent definitions and historical records; built structured landing/staging/mart tables in Google Dataform on a daily schedule, ingested via webhook and API connections from external platforms, and prioritized cross-departmental data needs through direct stakeholder negotiation
+- Built the data foundation for multi-touch attribution: gained access to marketing-platform APIs, built data dumps into Dataform mart tables, and constructed customer-journey tables with ROPO stitching for cross-device and online/offline measurement; supported development of an external consultant's R-based Markov-chain attribution model through code review and feature-development steering, set up the Vertex AI compute environment to run it, and presented resulting dashboards and modeling logic directly to marketing stakeholders
+- Identified and closed a blind spot in marketing measurement - roughly 50% of revenue is offline with no bridge to online behavior - by designing a ROPO (Research Online, Purchase Offline) model using Google Tag Manager first-party email capture matched to GA4 user_pseudo_id and cross-referenced against the appointment system and CDP; in the process, found and fixed a server-side tagging bug that was leaking internal traffic into the data, lifting captured online purchase event journeys from ~73% to ~85%, and linked 40% of monthly offline purchases (~€1.7M/month in revenue) to prior online behavior - unlocking lead-discovery, cross-channel product-index, and improved marketing-attribution use cases
 
 ### Junior Data Scientist - Sawiday (April 2025 - June 2026)
 Rosmalen, North Brabant, Netherlands
-- [RESPONSIBILITY_OR_ACHIEVEMENT_1]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_2]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_3]
+- Became the company's sole data scientist after the incumbent left (August 2025), reporting directly to the CFO with no technical lead in place; took ownership of professionalizing data science practice and reconciling ownership of script-based projects that sat between IT and Data Science
+- Designed and shipped a GDPR-compliant B2B lead-generation tool combining governmental open-data APIs (company registration, activity code, address) with Google Maps API enrichment and targeted web scraping for contact validation, deployed self-service on Google Cloud Run for business stakeholders to query by location and radius - generated 100k+ qualified leads and contributed to 20 B2B sales within the first 3 months
+- Led a cross-functional audit of five parallel product-association systems (Product Management, Marketing, IT, Data); built a revenue-attribution model joining web analytics to order lines showing suggestion blocks touched 7.7% of net revenue but caused only 0.38%, reframing the initiative from algorithm selection to fixing the underlying data (only 0.34% of 423,623 supplier-sent product relationships were usable) and halting an over-scoped A/B testing programme before further investment
+- Led professionalization of the data science function: migrated credential management off ad hoc storage (including credentials previously committed to GitHub) onto Keeper/Google Secret Manager/.env, introduced Git-based CI/CD with branching, PR review and documentation, standardized linting, and adopted uv for reproducible Python package management
+- Built a best-seller dashboard for Marketing by consolidating disparate product data sources in Tableau Prep Builder into a KPI-driven, product-profile-level ranking used to identify "best seller" and "our choice" merchandising picks
+- Built and owned an end-to-end HR hour-registration anomaly-detection pipeline (Python) integrating the Dyflexis Business API and Polaris roster exports, applying a rule-based catalog (missing registrations, break violations, overtime outliers, contract mismatches) and routing flagged anomalies to the correct manager/HR checker via automated Microsoft Graph email alerts
+- Automated purchase-order-confirmation processing into the ERP system via an n8n workflow with AI-based email classification (Outlook/Microsoft Graph) and a companion PDF/CSV extraction microservice on Google Cloud Run, with supplier-specific parsing and validation flags - projected to save up to 1 FTE of manual processing work
+- Stepped up to lead a stalled Zendesk AI ticket-automation integration for Customer Service after initially supporting it through ticket-volume, subject, and resolution-timeline analysis: wrote system prompts, advised on technical direction, liaised with external implementation partners, and supported product-owner hiring interviews - then proactively raised that the role had drifted into de facto project ownership of a department outside Data Science, and negotiated a scoped-back technical-advisor role with management
 
 ### Data, AI & Algorithm Intern - Philips Avent Experience Innovation (November 2024 - February 2025)
 Eindhoven, Noord-Brabant, Netherlands
@@ -50,7 +54,7 @@ Brussels, Belgium
 - Returned for a summer role at the managing director's invitation following a strong prior internship (Feb-Jul 2022); onboarded and supported new summer interns on internal systems, fielding questions and providing guidance
 - Led a GDPR data-cleaning project, ensuring personal data was deleted or anonymized in line with the bank's data-retention guidelines
 
-### Financial Analyst - Amazon, SCOT IPC Finance (January 2023 - June 2023)
+### Financial Analyst Intern - Amazon, SCOT IPC Finance (January 2023 - June 2023)
 Luxembourg
 - Designed and built a self-service standardization platform (SQL + Excel) consolidating 9 financial entitlement methodologies (distance, spreading, transfer metrics) into one wiki/dashboard, adopted by ~15 cross-functional stakeholders and cutting finance-team dependency for ad hoc data requests
 - Proposed and implemented a polynomial regression methodology for cost-curve modeling that replaced a flawed linear cost assumption, estimated to impact one project by $300M
@@ -60,7 +64,7 @@ Luxembourg
 - Authored weekly EU5 inventory-position commentary reviewed by leadership up to C-suite; automated the AKU (average cost-per-unit) analysis that fed into a downstream ML forecasting model
 - Audited capacity-constraint cost models across 40,000+ simulated data points, building regression-based marginal-impact estimates used to guide Buying and S&OP decisions
 
-### Financial Analyst - ING Belgium, Transport & Logistics Sector Coverage (February 2022 - July 2022)
+### Financial Analyst Intern - ING Belgium, Transport & Logistics Sector Coverage (February 2022 - July 2022)
 Brussels, Belgium
 - Supported portfolio management for Transport & Logistics sector clients (container shipping, rail, ports, aviation): financial modeling, credit analysis, covenant monitoring, and annual reviews
 - Performed KYC and compliance reviews for corporate lending clients
@@ -88,38 +92,50 @@ Swolgen, Netherlands
 <!-- Projects outside of employment: freelance, open source, personal -->
 - **Brain Tumor MRI Classification** (Deep Learning course group project, Tilburg University, Fall 2024): Built and compared CNN architectures (custom batch-normalized CNN tuned with Optuna, DenseNet121 and ResNet50 transfer learning) to classify brain MRI scans into 4 tumor classes (7,023 images). Led hyperparameter optimization, validation split design, and results analysis; best model reached 81.2% test accuracy.
 - **Well-Being Prediction Learning Challenge** (Machine Learning course group project/Kaggle-style leaderboard competition, Tilburg University, May 2024): Predicted momentary self-reported well-being scores from behavioral data collected during a stress-reducing video game. Built preprocessing (dtype correction, time-based and MICE imputation, outlier removal) and feature engineering pipeline (embedding models, weekday/weekend and user-behavior features), and trained/tuned XGBoost and CatBoost models via GridSearchCV. Iteratively improved the leaderboard error score from 209.1 to 127.8.
-- **Purchase order confirmation automation (n8n)**: Built an n8n workflow automating purchase-order-confirmation email processing into an ERP system - AI-based email classification, PDF/CSV data extraction (via a Python extractor service on Google Cloud Run), validation, and archiving. Minor/side project.
-- **[PROJECT_NAME]**: [DESCRIPTION]
 
 ## Technical Skills
 
 ### Programming & ML
-- **Python** ([PROFICIENCY]): TensorFlow, Keras, PyTorch, scikit-learn, XGBoost, CatBoost, sktime/aeon, librosa, Optuna, pandas, NumPy, Matplotlib
-- **R** ([PROFICIENCY]): [FRAMEWORKS_AND_LIBRARIES]
-- **SQL** ([PROFICIENCY])
+- **Python** (2 years professional experience): TensorFlow, Keras, PyTorch, scikit-learn, XGBoost, CatBoost, sktime/aeon, librosa, Optuna, pandas, NumPy, Matplotlib
+- **SQL** (2 years professional experience)
+- **R** (foundational from one university course, "Research Skills: Programming with R", grade 8.0; since used professionally at Sawiday in a code-review/feature-steering capacity on an R-based Markov-chain attribution model, not as primary implementer)
 - Deep learning (CNNs, transfer learning: VGG19, ResNet, DenseNet), time series classification (HIVE-COTE 2.0, MultiRocket+Hydra), hyperparameter optimization (Optuna/Bayesian optimization), audio feature engineering (MFCC, Mel Spectrogram)
-- [OTHER_SKILLS]
 
 ### Domain Expertise
-- [DOMAIN_1]
-- [DOMAIN_2]
+- Logistics & supply chain analytics (ING Belgium, Amazon, Sawiday)
+- E-commerce / marketplace data (Amazon, Sawiday)
+- Marketing measurement & attribution (MTA, incrementality testing, MMM, Markov-chain attribution modeling, ROPO analysis) (Sawiday)
+- Data warehouse design & ETL architecture (Google Dataform: landing/staging/mart layers) (Sawiday)
+- Built and deployed multiple Cloud Run microservices (B2B lead-generation tool, PO-confirmation PDF/CSV extraction service, HR hour-registration anomaly-detection pipeline) (Sawiday)
 
 ### Software & Tools
+- Git / version control
 - n8n (workflow automation/orchestration)
 - Google Cloud Platform (BigQuery, Dataform, Vertex AI, Google Cloud Run)
 - AWS (Athena)
 - DBeaver (MySQL)
+- Tableau
+- Power BI
+- Looker Studio
+- Excel
+- Confluence
 - Jira
 - Google Tag Manager
 - Google Analytics
-- [TOOL_LIST]
+- Docker
+- uv (Python package manager)
+- ruff, black, mypy, bandit (Python lint/type/security tooling)
+- Pydantic, Loguru
+- Microsoft Graph API (Outlook mail/automation)
+- Secrets management: Keeper, Google Secret Manager
 
-## Publications
-<!-- List peer-reviewed publications, if any -->
-1. [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL]. [DOI_LINK]
+## Volunteering
+- **OJC Merlin** (youth centre, Meerlo, Netherlands) - ~7 years: assisted leadership with departmental operations, supported back-office event planning, and held sole responsibility for the cash audit
 
-## Awards
-- [AWARD] - [EVENT] ([YEAR])
+## Talks & Conferences
+- **Speaker, DATA2026** (Eye Museum, Amsterdam, January 22, 2026) - added as an extra/late-addition speaker on the practicalities of Media Mix Modelling (MMM) and Multi-Touch Attribution (MTA), triangulated with incrementality testing, for a more comprehensive view of marketing performance - framed deliberately around practical application over methodology/hype
+- Attended **NextGenData2026** (Barcelona) alongside Sawiday's external data science/engineering partner, The Data Story
+- Attended Ecommerce AI club lunch-and-learn sessions (during Sawiday tenure)
 
 ## References
 - [NAME], [TITLE], [COMPANY] ([EMAIL], [PHONE])

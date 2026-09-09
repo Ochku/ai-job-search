@@ -1,0 +1,53 @@
+### Junior Data Scientist - Sawiday (April 2025 - June 2026)
+Rosmalen, North Brabant, Netherlands
+
+Context:
+When I joined, the data team consisted of one data scientist and one data analyst, reporting to the CFO, with no technical lead. The data scientist supported my onboarding but left in August 2025, leaving me as the sole data scientist. At the time there was internal pressure to professionalise the function: version control was handled through OneDrive, credentials had been committed to GitHub, and there was little documentation or structure in code setup. Ownership was also unclear on several script-based projects that sat between IT and Data Science. I was made responsible to create guide this moving forward and reconcile with IT. Furthermore, was I assisted by external consultants from The Data Story for data science and data engineering questions.
+
+The projects below are listed chronologically.
+
+1. Best seller dashboard
+As a first project to get to know the data clusters I was asked to create a best seller dashboard for the marketing department. Based on different KPI's these needed to give a product profile level top 10 based products that should be considered to highlight as 'best seller' or 'our choice'. I needed to connect the different data tables using Tableau Prep Builder. To finally develop into a dashboard.
+
+2. Business data scraper
+For the B2B department the request was to generate more cold lead using a data first approach. I did research and found online API access to governemental data sources for high level company detail information including (company name, business registration number, Business activity code, business adress). Filtering the relevant companies I created a target subset. Based on company name and business adress I cross-referenced using the Google maps API to find webistes and phonenumbers. The website was scraped for email adresses and phonenumbers for extra validation. The information details were screened to only include company details, removing personal email adresses and information inline with GDPR standards. And finally internal details like purchase history at our company were added for context. This was all streamlined into a tool deployed using Google cloud run. So that business stakeholders could just enter a location and radius to get the processed data lists. Resulting in over 100k potential leads and 20 B2B sales over the first 3 months.  
+
+3. Image generation
+Due to the developments of AI the product management department wanted a tool to generate images to present on the website. Due to the early phase of image generation and limitation of the models back then I was not able to deliver the results they hoped for. A shortcoming of myself during the project was my striving for perfect and keep on building extensive pipelines for each unique model. Eventually, later during a moment of reflection I realised that sometimes a short MVP and quick deliveries are important to get feedback from the business. Furthermore, to develop a modular pipeline to easily and quickly swap between set-up when using AI vendors. That would have saved time rebuilding the harness and created more opportunities for testing.
+
+4. Ecommerce AI club 
+Due to the need ask to do more with AI the company joined a business club focused on intergrating AI into the business. Here I discussed ideas with other companies to work through this problem. Gathering insight in the readiness at each business unit, potential/opportunities, what data was availble, which tools were being used. In weekly discussion I spoke with other leaders to see how they dealt with the fast changing landscape. However, due to the high workload of me being the only data scientist I had to stop this endeavour. There were too little results and expertise in the group to leverage them to my project lead, resulting in a net negative use of my time. 
+
+5. Professionalization project:
+- Work with secret manager (keeper, google secret manager, .env)
+- CI/CD in Git using different branches, PR request, code review, and documentation
+- Linter set up
+- UV package manager for version control of packages 
+
+6. Product associations 
+The ask came from returns. Customers were ordering combinations that don't fit — a toilet seat with the wrong pan, for example — so the business wanted a basket checker that could warn shoppers before they completed a mistaken purchase.
+
+Mapping the existing landscape turned up five separate association systems, each built at a different time by a different owner: productsets and bundles (Product Management), series (built by IT, owned by Marketing), cross-sell and up-sell (Data). All five answered the same question — which products belong together — with different logic, sources and update cycles, producing duplicate suggestions and an overloaded product page.
+
+Purchase history could not solve it. Our long tail means most product pairs never co-occur often enough to be significant, and more fundamentally the business question was premised on customers choosing wrongly, so co-purchase data encodes exactly the mistakes the tool was meant to prevent. The real constraint sat in the catalogue: no mandatory or standardised attributes to establish that product A requires or fits product B. Suppliers do send explicit relationship files, but they were matched on a single product-number field, so almost none of it reached us.
+
+Rather than argue that case, I measured it. I built an audit joining web analytics to order lines for a full quarter, attributing revenue at three levels of strictness — block present in the journey, block clicked, block clicked and that product bought. The blocks are present in 7.7% of net revenue but demonstrably cause 0.38%. The gap between those two numbers was the finding, and it reframed the discussion from "which algorithm should we use" to "the relationship data feeding them is the constraint."
+
+Underneath it, the measurement isolated where the value actually sits:
+
+Suggestions convert when the second product is functionally required by the first (2–8%) and essentially never when it is a matter of taste. Siphon to waste plug converts at 7.9%; style-based pairings sell nothing.
+31.6% of up-sell clicks went to product-group pairings that produced zero sales in the quarter. On large configured purchases, shoppers return to their original choice 2.4 times more often than they take the suggestion.
+Only 12.5% of products had a suggestion list unique to them; 59% shared theirs with more than fifty other products.
+Suppliers had sent 423,623 product relationships. We could use 0.34% of them, and five of seven suppliers contributed nothing at all.
+Two of the four blocks could not be evaluated at all: series never records an impression, bundle never records a click. Both are small front-end fixes that were silently blocking any A/B result.
+
+I also stopped the planned A/B programme. Three tests had been designed as a ladder of sophistication, but only the first was built, and it would have shown 115 distinct products against the 19,982 already live. The baseline had improved past the tests since they were written.
+
+The recommendations were sequenced deliberately so value did not wait on the large programme: immediate actions requiring no new data (retire the dead pairings, cap how often one product can appear, publish the supplier relationships already validated), then a one-to-three-month tier led by extending supplier matching to the fallbacks our own import already used — three suppliers alone accounted for 90% of the unusable data — then the six-to-nine-month build of a single relationship source carrying relationship type, with the old logic retired per block so we did not simply add a sixth system to the five.
+
+7. Dyflexis
+"C:\Users\lapto\Desktop\New folder\hr-dyflexis"
+
+8. N8N Flow 
+"C:\Users\lapto\Downloads\README (1).md"
+"C:\Users\lapto\Downloads\Inkoop orderbevesting - Prod.json"
