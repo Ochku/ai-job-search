@@ -8,7 +8,7 @@
 
 ## Compile command
 
-    cd cv && lualatex -interaction=nonstopmode main_<company>.tex
+    cd cv && lualatex -interaction=nonstopmode cv_<company>.tex
 
 ## Style rules
 

@@ -10,7 +10,7 @@
 > - **Compile with:** `lualatex` (not the engine named in the stock guidance below — though it also happens to be lualatex here)
 > - **Fonts:** CormorantGaramond + charter, both standard TeX-distribution font packages (no bundled files, no install needed on a full TeX distribution). Note: `template.tex` already patches font loading for engine compatibility (`luatex85` for `\pdfglyphtounicode`, `XCharter` via fontspec in place of `charter` under lualatex/xelatex) — do not remove those patches.
 > - **Page limit:** exactly 1 page
-> - **Output file:** unchanged (`cv/main_<company>.tex`); no extra class/font files need to be copied to the output directory
+> - **Output file:** unchanged (`cv/cv_<company>.tex`); no extra class/font files need to be copied to the output directory
 <!-- END ACTIVE-TEMPLATE -->
 
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
@@ -19,17 +19,17 @@
 
 All CVs use the moderncv LaTeX package with the "banking" style and "blue" color scheme.
 
-**Output file:** `cv/main_<company>.tex`
+**Output file:** `cv/cv_<company>.tex`
 **Compile with:** **lualatex** on MiKTeX/TeX Live. pdflatex often fails on modern MiKTeX installs with `fontawesome5` font-expansion errors; lualatex handles the same sources cleanly.
 **Master reference:** `cv/main_example.tex` (comprehensive CV with all competencies, experience, and achievements - use as source when building targeted CVs)
 
 ### Compile command
 
 ```bash
-cd cv && lualatex -interaction=nonstopmode main_<company>.tex
+cd cv && lualatex -interaction=nonstopmode cv_<company>.tex
 ```
 
-Expected output: `Output written on main_<company>.pdf (2 pages, ...)`. Any page count other than 2 is a failure that must be fixed before presenting to the user.
+Expected output: `Output written on cv_<company>.pdf (2 pages, ...)`. Any page count other than 2 is a failure that must be fixed before presenting to the user.
 
 ## Document Structure
 
@@ -122,12 +122,16 @@ Write 5-7 lines that function as an "elevator pitch": a concise, compelling intr
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Data Scientist / ML roles:**
+> Data scientist with two years of hands-on experience building end-to-end pipelines, from consolidating fragmented data into a governed Google Dataform warehouse to modeling multi-touch marketing attribution and deploying production tools on Google Cloud Run. Built a Research-Online-Purchase-Offline (ROPO) model at Sawiday that linked 40% of monthly offline purchases (~€1.7M/month) back to online behavior, closing a blind spot across half the company's revenue. MSc Data Science and Society (Tilburg University), thesis benchmarking deep learning against state-of-the-art time series classifiers. Known for translating ambiguous business problems into technical solutions and communicating results clearly to non-technical stakeholders.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Data Engineer roles:**
+> Data professional with hands-on ownership of a company-wide data warehouse build: designing landing/staging/mart layers in Google Dataform, ingesting data via API and webhook connections across marketing, ERP, HR, and support platforms, and automating delivery through Google Cloud Run. Migrated ad hoc credential storage and undocumented scripts into a version-controlled, CI/CD-driven workflow (Git branching, PR review, linting, `uv` package management) after becoming the sole technical owner of the data function. Background in Python, SQL, and cloud data infrastructure, paired with an MSc in Data Science and Society (Tilburg University) and prior experience building self-service reporting platforms as a financial analyst.
+
+**For Data Analyst roles:**
+> Analytically-driven data professional experienced in turning fragmented data sources into decision-ready insight: consolidated disparate product data into a KPI-driven best-seller dashboard, audited five overlapping product-recommendation systems to find that suggestions present in 7.7% of revenue caused only 0.38% of it, and built customer-journey models bridging online and offline purchase behavior. Background spans financial analysis (ING Belgium, Amazon) and data science (Sawiday, Philips Avent), with an MSc in Data Science and Society (Tilburg University). Comfortable presenting findings directly to business stakeholders and using data to challenge assumptions, not just confirm them.
+
+*(Trim to 3-4 lines per the Page Budget below when used in an actual CV - these templates run slightly long as reusable starting points.)*
 
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
@@ -167,7 +171,7 @@ If there is a gap in your employment history:
 
 After writing the CV and before presenting to the user, always compile and visually inspect the PDF. Iterate until the layout is clean. Workflow:
 
-1. Run `lualatex -interaction=nonstopmode main_<company>.tex`
+1. Run `lualatex -interaction=nonstopmode cv_<company>.tex`
 2. Check the output page count: must be exactly 2
 3. Read the PDF via the Read tool and visually inspect both pages
 4. Check for **orphaned entries**: a `\cventry` title line must never sit alone at the bottom of page 1 with its bullets on page 2
@@ -196,7 +200,7 @@ Restore the highest-relevance item that was previously cut — a CV that ends mi
 Most employers run CVs through an ATS before a human sees them, and the ATS reads the PDF's embedded **text layer**, not the rendered page. A CV can pass visual inspection and still extract as garbage. After the layout passes the compile-and-inspect loop, verify the text layer:
 
 ```bash
-cd cv && pdftotext -layout main_<company>.pdf main_<company>.txt
+cd cv && pdftotext -layout cv_<company>.pdf cv_<company>.txt
 ```
 
 `pdftotext` comes from [poppler](https://poppler.freedesktop.org/), not the TeX distribution - it is an **optional** dependency. If it is not installed, skip the mechanical check with a warning and rely on the visual PDF read for keyword coverage.

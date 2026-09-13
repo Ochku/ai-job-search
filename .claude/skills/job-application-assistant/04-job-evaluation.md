@@ -16,9 +16,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Python, SQL, marketing measurement & attribution (MTA, MMM, incrementality testing, ROPO/Markov-chain modeling), data warehouse & ETL design (Google Dataform, BigQuery landing/staging/mart architecture), Google Cloud Platform (Cloud Run, Vertex AI, BigQuery), stakeholder-facing data storytelling and translating ambiguous business asks into technical specs, e-commerce/marketplace data
+**Moderate match areas:** R (code-review/steering level, not primary implementer), deep learning & time series classification (strong academic depth from thesis - CNNs, HIVE-COTE 2.0, MultiRocket+Hydra - limited production ML-engineering mileage), BI/dashboarding tools (Tableau, Power BI, Looker Studio), workflow automation (n8n), AWS (Athena only)
+**Weak match areas:** *(no evidence yet in profile - confirm/add)* formal people management, productionized MLOps at scale (model serving/monitoring infrastructure beyond Cloud Run microservices), Danish beyond B1 (relevant for Denmark-based roles requiring fluent/native Danish)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -30,9 +30,11 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Data science / analytics roles bridging business stakeholders and technical delivery; marketing measurement & attribution; data warehouse/ETL ownership; e-commerce and B2B lead-generation domains; being the sole or lead technical resource on a small data function
+**Moderate:** Financial analysis / quantitative modeling roles (ING Belgium, Amazon) - transferable analytical rigor, stakeholder reporting, and regression/statistical modeling, but not under a "data scientist" title; logistics/supply-chain analytics (Amazon, Sawiday)
+**Entry-level:** Formal people management (never had direct reports); large-scale production ML engineering / MLOps (ML experience is thesis-level academic depth plus lightweight on-device work at Philips Avent, not high-scale production ML systems)
+
+**Seniority-title calibration (important - self-assessed level is Junior/Medior, not Senior):** Total professional data/DS tenure is Junior Data Scientist (Apr 2025-Jun 2026, ~14 months) + Medior Data Scientist (Jun 2026-present) - under two years total, none of it under a "Data Engineer" title specifically even though the work included real ETL/warehouse ownership. When a posting's title carries a seniority qualifier ("Senior", "Staff", "Lead", "Principal") **and** states an explicit minimum-years requirement in the exact function being hired for (e.g. "3-5 years as a Data Engineer", "6+ years"), cap Experience Match at 55 regardless of tool/domain overlap - broad scope or ownership at a lower title does not substitute for a stated minimum-tenure gate in an ATS-screened posting. If the posting carries a seniority title but states no explicit years requirement (common at smaller/scrappier companies where "Senior"/"Staff" reflects scope and autonomy rather than tenure), score normally but flag the title mismatch as a gap for the user to sanity-check before applying - don't silently ignore it either way.
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -63,19 +65,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Broaden into general data science / ML roles rather than staying narrowly specialized in marketing measurement/attribution
+- Stay hands-on as an individual contributor, but in a team structure with a technical lead or senior peer above to sanity-check scope (not solo-DS again)
+- Open to general data engineering and data analyst roles that fit the profile, not just "Data Scientist" titles - widens the search rather than narrowing it
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize *(from `02-behavioral-profile.md`)*: ambiguous, business-facing 0-to-1 problems with no existing technical spec; translating an ambiguous ask into a technical solution and explaining it back in plain terms; marketing measurement & attribution work; owning a data function/warehouse end-to-end; small/lean teams where impact is visible
+- Tasks that drain *(from behavioral profile)*: heavy formal Scrum/Jira backlog discipline as a core expectation; being the sole technical resource indefinitely with no peer or lead to sanity-check scope/estimates; narrowly scoped IC execution with no stakeholder-facing or scoping component
+- Non-task factors: leadership style, department culture, company values, degree of autonomy - benefits from a technical lead or senior peer to validate scope up front (not to oversee execution)
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Moderate urgency - currently employed at Sawiday so not desperate, but actively want to move within the next few months rather than wait indefinitely for a perfect fit
+- **Flexibility**: Open to on-site from day one once relocated to Denmark - no remote/hybrid bridge period needed; Sawiday's notice period is the main timing constraint, not a work-mode preference
+- **Professional development**: Priority is building formal ML engineering / MLOps depth (production-grade deployment and monitoring beyond current Cloud Run microservice level) - favor roles that offer this over ones that only reuse existing strengths
 
 ### 6. Salary Benchmark (Optional)
 

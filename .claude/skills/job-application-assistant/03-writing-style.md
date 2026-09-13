@@ -19,6 +19,28 @@
 - **First person, active voice.** "I built" not "a system was developed by the candidate."
 - **Demonstrate, don't state.** Instead of "I am a team player", write a specific example of teamwork and its outcome.
 
+## Steff's Natural Voice (Match This)
+
+Steff hand-wrote a full cover letter draft (Dreamdata, Staff Insights Engineer, 2026-09-13) and asked future letters to match its build-up, word choice, and vibe rather than a more literary/narrative register. Treat it as the reference voice for his letters.
+
+**Reference sample (his words):**
+> "I am interested in the Staff Insights Engineer position. At Sawiday, I built a data warehouse and marketing attribution infrastructure similar to what Dreamdata delivers for its customers. As a result, I recognize many of the problems your business faces.
+>
+> Your company mentions creating the LinkedIn Ads Benchmarks Report based on 66M+ sessions and 3.5M+ customer journeys, arguing for results at the company level rather than at the contact level. I interpret this as focusing on creating real value instead of pure measurement...
+>
+> I'm interested to hear how you are tackling technical attribution issues like GDPR restrictions, tracking prevention, and the zero-click universe of AI. Hopefully we can talk more about this during one of the interviews."
+
+**Patterns to reproduce:**
+1. **Plain, direct openings.** "I am interested in the Staff Insights Engineer position" beats a crafted hook like "I'm writing to apply for the role, close enough to what you're hiring for that I recognized...". State the plain fact first.
+2. **Explicit logical connectors.** He bridges ideas with visible connector words - "As a result," "Therefore," "In my role," "Among other sources" - instead of leaving the connection implicit or using more literary transitions.
+3. **State his own interpretation of a company fact, not just the fact.** "I interpret this as focusing on creating real value instead of pure measurement" - he explicitly names how he reads a data point, rather than citing it and moving on. Reuse "I interpret this as..." / "I read this as..." when referencing something from the company/posting.
+4. **Restrained, dual-grounded motivation instead of superlatives.** He wrote "Closing this gap from a business and technical perspective excites me" - not "became the project I'm proudest of." Ground enthusiasm in a concrete duality (business + technical, or two named angles) rather than emotional superlatives ("proudest," "favorite").
+5. **Short, stepwise build-up for technical narration.** He narrates technical work as a sequence - validate, then reconcile, then analyze, then insight - rather than one dense compound sentence. His draft sometimes did this as sentence fragments ("From validating X... To relevant insights, where..."); keep the short, stepwise rhythm but close each into a complete sentence per the grammar rule below, e.g.: "That started with validating UTM and GTM tagging, reconciling sources, and analyzing the data to spot patterns before trusting the inputs - work that led to [insight/model]."
+6. **Plain professional self-reference.** "internal data scientist," "business student," "technical consultants" - no dramatic self-description, no capability-statement phrasing.
+7. **Low-key, informal closing.** He closes with "I'm interested to hear how you are tackling [open industry problem]... Hopefully we can talk more about this during one of the interviews" rather than "I would welcome the opportunity to discuss..." Prefer this kind of closing (a genuine, specific question about the industry/company, then "Hopefully we can talk more about this during one of the interviews" or a close variant) over generic sign-offs.
+
+**Still apply everything above:** no em-dashes, no cliches, every claim backed by a fact or number (his own draft dropped some numbers - add them back in rather than leaving claims unquantified), verified company claims, and the interview backtrack test. Smooth any literal sentence fragments into complete sentences (per the mandatory grammar check) while preserving the short, stepwise rhythm from point 5 - don't over-polish into long flowing sentences either.
+
 ## Application Headline (Best Practice)
 
 The subject line / headline of the application should be engaging and specific, not generic.

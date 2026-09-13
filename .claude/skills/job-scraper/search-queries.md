@@ -6,7 +6,7 @@
 
 Primary (Danish job market):
 - **jobindex.dk** - largest Danish job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: Denmark / your city)
+- **linkedin.com/jobs** - LinkedIn job listings (filter: Denmark / Copenhagen)
 - **karriere.dk** - IDA's job board (engineering/science roles)
 - **jobfinder.dk** - another major Danish job board
 - **akademikernes.dk** - academic union job board
@@ -16,55 +16,61 @@ Secondary (company career pages via Google):
 
 ## Query Categories
 
-Queries are grouped by priority. Each query should be combined with your location terms (e.g. "Copenhagen", "Sjælland", "Hovedstaden") where the site supports it.
+Queries are grouped by priority. Each query should be combined with location terms ("Copenhagen", "Hovedstaden", "Sjælland", "Hillerød") where the site supports it. Sector is deliberately not used as a filter - see Target Sectors in `CLAUDE.md` (sector-agnostic by design).
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Data Scientist / Data Analyst / Data Engineer
 
-These match your strongest and most desired career direction.
-
-```
-site:jobindex.dk "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:jobindex.dk "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
+These match the broadened career goal (general DS/ML/DE/analyst, not narrowly specialized) and strongest skills (Python, SQL, GCP).
 
 ```
-site:jobindex.dk [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:jobindex.dk [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:jobindex.dk "Data Scientist" Copenhagen OR Hillerød
+site:jobindex.dk "Data Analyst" Copenhagen OR Hillerød
+site:jobindex.dk "Data Engineer" Copenhagen OR Hillerød
+site:jobindex.dk "Python" "SQL" Copenhagen OR Hillerød
+site:linkedin.com/jobs "Data Scientist" Denmark
+site:linkedin.com/jobs "Data Engineer" Denmark
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+When running the live-browser search (not the WebSearch fallback), also run the Jobindex geography filter for Hillerød directly, e.g. `https://www.jobindex.dk/jobsoegning/hilleroed?q=data+scientist&lang=en` (mirror the `koebenhavn` pattern used for Copenhagen) - the Copenhagen geo-filter does not reliably include Hillerød postings even though it's in the same commute region.
 
-Adjacent roles you could pivot into.
+### Priority 2: Marketing Measurement / E-commerce Data
+
+These match domain expertise (MTA/MMM/attribution, ROPO, data warehouse/ETL) - a strength to search for, not a sector restriction.
 
 ```
-site:jobindex.dk "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:jobindex.dk "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:jobindex.dk "marketing analytics" OR "marketing attribution" Copenhagen OR Hovedstaden
+site:jobindex.dk "BigQuery" OR "Dataform" Copenhagen
+site:linkedin.com/jobs "attribution" "data" Copenhagen Denmark
+```
+
+### Priority 3: Analytics Engineer / BI Developer / ML Engineer
+
+Adjacent roles that fit the "stay hands-on IC, broaden beyond one title" goal.
+
+```
+site:jobindex.dk "Analytics Engineer" Copenhagen
+site:jobindex.dk "BI Developer" OR "BI Udvikler" Copenhagen
+site:jobindex.dk "Machine Learning Engineer" Copenhagen
 ```
 
 ### Priority 4: Broader Technical / Consulting
 
-Wider net for general technical roles.
+Wider net for general technical roles that use the same core toolset.
 
 ```
-site:jobindex.dk [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:jobindex.dk "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:jobindex.dk "Python" developer Copenhagen
+site:linkedin.com/jobs "SQL" "Python developer" Copenhagen
+site:jobindex.dk "technical consultant" data Copenhagen
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+When evaluating results, verify the job location is compatible with the Denmark deal-breaker (see `CLAUDE.md` Deal-breakers). Define acceptable areas:
+- Copenhagen (København) and Frederiksberg - ideal
+- Greater Copenhagen / Hovedstaden region, including Hillerød - acceptable
+- Remote-to-Denmark (company based in Denmark, role explicitly remote-friendly) - acceptable
+- Other Danish cities requiring on-site presence (e.g. Aarhus, Odense) - borderline, flag for discussion since it would mean a second relocation within Denmark
+- Any role requiring relocation outside Denmark or permanent on-site outside Denmark - fails the deal-breaker, exclude
 
 ## Date Filter
 

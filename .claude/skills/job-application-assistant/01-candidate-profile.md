@@ -27,7 +27,7 @@
 ### Medior Data Scientist - Sawiday (June 2026 - Present)
 Rosmalen, North Brabant, Netherlands
 - Led cross-functional design and delivery of a company-wide data warehouse (coordinating with IT, the team's data analyst, and an external data engineer from The Data Story) to consolidate external and internal data behind consistent definitions and historical records; built structured landing/staging/mart tables in Google Dataform on a daily schedule, ingested via webhook and API connections from external platforms, and prioritized cross-departmental data needs through direct stakeholder negotiation
-- Built the data foundation for multi-touch attribution: gained access to marketing-platform APIs, built data dumps into Dataform mart tables, and constructed customer-journey tables with ROPO stitching for cross-device and online/offline measurement; supported development of an external consultant's R-based Markov-chain attribution model through code review and feature-development steering, set up the Vertex AI compute environment to run it, and presented resulting dashboards and modeling logic directly to marketing stakeholders
+- Built the data foundation for multi-touch attribution: gained access to marketing-platform APIs, built data dumps into Dataform mart tables, and constructed customer-journey tables with ROPO stitching for cross-device and online/offline measurement; co-developed a Markov-chain attribution model with an external consultant - working jointly through methodology and implementation rather than reviewing from the sidelines - set up the Vertex AI compute environment to run it, and presented resulting dashboards and modeling logic directly to marketing stakeholders
 - Identified and closed a blind spot in marketing measurement - roughly 50% of revenue is offline with no bridge to online behavior - by designing a ROPO (Research Online, Purchase Offline) model using Google Tag Manager first-party email capture matched to GA4 user_pseudo_id and cross-referenced against the appointment system and CDP; in the process, found and fixed a server-side tagging bug that was leaking internal traffic into the data, lifting captured online purchase event journeys from ~73% to ~85%, and linked 40% of monthly offline purchases (~€1.7M/month in revenue) to prior online behavior - unlocking lead-discovery, cross-channel product-index, and improved marketing-attribution use cases
 
 ### Junior Data Scientist - Sawiday (April 2025 - June 2026)
@@ -54,7 +54,7 @@ Brussels, Belgium
 - Returned for a summer role at the managing director's invitation following a strong prior internship (Feb-Jul 2022); onboarded and supported new summer interns on internal systems, fielding questions and providing guidance
 - Led a GDPR data-cleaning project, ensuring personal data was deleted or anonymized in line with the bank's data-retention guidelines
 
-### Financial Analyst Intern - Amazon, SCOT IPC Finance (January 2023 - June 2023)
+### Financial Data Analyst Intern - Amazon, SCOT IPC Finance (January 2023 - June 2023)
 Luxembourg
 - Designed and built a self-service standardization platform (SQL + Excel) consolidating 9 financial entitlement methodologies (distance, spreading, transfer metrics) into one wiki/dashboard, adopted by ~15 cross-functional stakeholders and cutting finance-team dependency for ad hoc data requests
 - Proposed and implemented a polynomial regression methodology for cost-curve modeling that replaced a flawed linear cost assumption, estimated to impact one project by $300M
@@ -98,7 +98,7 @@ Swolgen, Netherlands
 ### Programming & ML
 - **Python** (2 years professional experience): TensorFlow, Keras, PyTorch, scikit-learn, XGBoost, CatBoost, sktime/aeon, librosa, Optuna, pandas, NumPy, Matplotlib
 - **SQL** (2 years professional experience)
-- **R** (foundational from one university course, "Research Skills: Programming with R", grade 8.0; since used professionally at Sawiday in a code-review/feature-steering capacity on an R-based Markov-chain attribution model, not as primary implementer)
+- **R** (foundational from one university course, "Research Skills: Programming with R", grade 8.0; since co-developed a Markov-chain attribution model with an external consultant at Sawiday, working through the methodology and implementation jointly rather than as primary day-to-day language)
 - Deep learning (CNNs, transfer learning: VGG19, ResNet, DenseNet), time series classification (HIVE-COTE 2.0, MultiRocket+Hydra), hyperparameter optimization (Optuna/Bayesian optimization), audio feature engineering (MFCC, Mel Spectrogram)
 
 ### Domain Expertise
@@ -110,7 +110,8 @@ Swolgen, Netherlands
 
 ### Software & Tools
 - Git / version control
-- n8n (workflow automation/orchestration)
+- n8n
+- Claude Code, Codex, Gemini
 - Google Cloud Platform (BigQuery, Dataform, Vertex AI, Google Cloud Run)
 - AWS (Athena)
 - DBeaver (MySQL)
@@ -138,6 +139,7 @@ Swolgen, Netherlands
 - Attended Ecommerce AI club lunch-and-learn sessions (during Sawiday tenure)
 
 ## References
-- [NAME], [TITLE], [COMPANY] ([EMAIL], [PHONE])
+- Nino Weerman, AI & Data Science Lead, The Data Story
+- Aditya Khaire, Senior Product Manager Tech, Amazon
 
 More references available upon request.
