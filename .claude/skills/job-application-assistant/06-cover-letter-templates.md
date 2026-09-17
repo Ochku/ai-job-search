@@ -22,34 +22,7 @@ After writing the cover letter and before presenting to the user, always compile
 
 1. Run `xelatex -interaction=nonstopmode cover_<company>_<role>.tex`
 2. Confirm page count is exactly 1 and compile succeeded
-3. Read the PDF via the Read tool and visually check: signature fits at the bottom, no text cut off, bullet font matches body
-
-### Known template pitfall: itemize inside `\lettercontent{}`
-
-The `\lettercontent{}` macro appends `\\` to its argument. This breaks when the argument ends in `\end{itemize}` because `\\` has no line to break after the environment closes, producing `! LaTeX Error: There's no line here to end.` and no PDF output.
-
-**Wrong (breaks compile):**
-```latex
-\lettercontent{Here is how my experience maps:
-\begin{itemize}
-    \item ...
-\end{itemize}}
-```
-
-**Correct — close `\lettercontent{}` before the list and wrap the list in the matching Raleway-Medium font so typography stays consistent:**
-```latex
-\lettercontent{Here is how my experience maps:}
-
-{\raggedright\fontspec[Path = OpenFonts/fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont
-\begin{itemize}
-    \item ...
-\end{itemize}\par}
-\vspace{6pt}
-
-\lettercontent{[next paragraph]}
-```
-
-The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\lettercontent{}` without the `\fontspec` block, bullets render in the default body font (Lato) and visually mismatch the rest of the letter.
+3. Read the PDF via the Read tool and visually check: signature fits at the bottom, no text cut off
 
 ## Document Structure
 
@@ -84,13 +57,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 
 \lettercontent{[Opening paragraph - role, connection to background, 2-3 sentences]}
 
-\lettercontent{[Body paragraph - most relevant experience, then bullet list]
-
-\begin{itemize}
-    \item [Concrete achievement/skill 1]
-    \item [Concrete achievement/skill 2]
-    \item [Concrete achievement/skill 3]
-\end{itemize}
+\lettercontent{[Body paragraph - most relevant experience, woven into prose: what you did, how, and the result, in flowing sentences rather than a bulleted list]
 
 [Connection to company - why this role, why this company specifically]}
 
@@ -119,26 +86,23 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 ## Tailoring Guidelines
 
 ### Salutation
-- If you know the hiring manager's name: "Dear [First Last],"
-- If you know the team: "Dear [Company] hiring team,"
+- If the posting names the actual hiring manager for this role (not just a contact for candidate questions): "Dear [First Last],"
+- A named contact listed only "for inquiries" is not necessarily the hiring manager - default to addressing the team instead: "Dear [Company] [Department] Team," or "Dear [Company] hiring team,"
 - Generic: "Dear [Company]," (avoid "To whom it may concern")
 
 ### Length - Hard 1-Page Limit
 - Target: 1 page including signature block
 - Maximum: **never exceed 1 page**
 - **Word budget: 250-300 words** of body text (not counting LaTeX markup). This is the safe maximum. 350 words will overflow.
-- **Always count**: opening paragraph + bullet list paragraph + closing paragraph = 3 blocks. Add a 4th only if the others are short.
+- **Always count**: opening paragraph + body paragraph(s) + closing paragraph = 3 blocks. Add a 4th only if the others are short.
 - When adding company-specific content, trim other content to compensate rather than adding net length
 
 ### Line Spacing
 - Add `\usepackage{setspace}` and `\setstretch{1.0}` if the letter is long and needs to fit on one page
 - Use `\vspace{.5cm}` between major sections for readability (only if space permits)
 
-### Bullet Lists
-- Place `\begin{itemize}...\end{itemize}` **outside** a `\lettercontent{}` block (see "Known template pitfall" above), wrapped in the matching Raleway-Medium `\fontspec` so the bullet font matches the body
-- 3-5 bullets is ideal
-- Start each bullet with bold label or action verb
-- Use `\textbf{Label:}` for category-style bullets
+### No Bullet Lists
+Cover letters are written entirely in prose, no `itemize` blocks. Weave concrete skills and achievements into full sentences within a `\lettercontent{}` paragraph instead of listing them - this is a hard style rule for this repo, not a per-letter judgment call.
 
 ### LaTeX Special Characters
 - Underscore: `\_`
@@ -150,6 +114,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 - Adjust closing to local convention (e.g. "Med venlig hilsen," for Danish)
 
 ## Checklist Before Finalizing
+- [ ] No bullet lists - written entirely in prose
 - [ ] No em-dashes (use commas or periods instead)
 - [ ] No cliches or empty filler
 - [ ] Every claim backed by specific example
@@ -159,7 +124,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 - [ ] Date is current
 - [ ] Fits on one page
 - [ ] Language matches the job posting language
-- [ ] Salutation is appropriate (named person if possible)
+- [ ] Salutation is appropriate (named hiring manager only if the posting identifies one as such, not just an inquiries contact)
 - [ ] Headline is engaging and specific, not generic
 
 ## Submission Guidelines (Best Practice)

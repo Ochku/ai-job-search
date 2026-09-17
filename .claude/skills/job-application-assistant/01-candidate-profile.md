@@ -19,7 +19,7 @@
 |--------|--------|-------------|------------|
 | MSc Data Science and Society (thesis: "Music Genre Classification Using Time Series Classifiers: A Comparative Study Between Convolutional Neural Networks, HIVE COTE 2.0, and MultiRocket+Hydra", grade 7.5, judicium "met genoegen", avg. 8.32) | Feb 2024 - Feb 2025 | Tilburg University | Machine Learning, Deep Learning, NLP, Data Mining, Data Science Regulation & Law, Business Intelligence, Statistics & Methodology |
 | Pre-Master Data Science and Society | Aug 2023 - Jan 2024 | Tilburg University | Bridging program into MSc |
-| HBO Bachelor International Business, major Finance | Sept 2019 - July 2023 | HAN International School of Business (Hogeschool van Arnhem en Nijmegen) | Finance, International Economics, Accounting & Financial Reporting, Supply Chain Management, Data & Information Management |
+| HBO Bachelor International Business, major Finance (graduation project focused on the fintech sector) | Sept 2019 - July 2023 | HAN International School of Business (Hogeschool van Arnhem en Nijmegen) | Finance, International Economics, Accounting & Financial Reporting, Supply Chain Management, Data & Information Management |
 | Mbo Medewerker marketing en communicatie (Niveau 4 / EQF 4) | 2016 - 2019 | Gilde Opleidingen (Roermond) | Marketing & communications |
 
 ## Professional Experience
@@ -100,6 +100,7 @@ Swolgen, Netherlands
 - **SQL** (2 years professional experience)
 - **R** (foundational from one university course, "Research Skills: Programming with R", grade 8.0; since co-developed a Markov-chain attribution model with an external consultant at Sawiday, working through the methodology and implementation jointly rather than as primary day-to-day language)
 - Deep learning (CNNs, transfer learning: VGG19, ResNet, DenseNet), time series classification (HIVE-COTE 2.0, MultiRocket+Hydra), hyperparameter optimization (Optuna/Bayesian optimization), audio feature engineering (MFCC, Mel Spectrogram)
+- **PySpark + Databricks** (foundational, from MSc coursework, Tilburg University): exposure to distributed DataFrame processing and the Databricks platform in a university course setting; not yet applied in a professional project
 
 ### Domain Expertise
 - Logistics & supply chain analytics (ING Belgium, Amazon, Sawiday)

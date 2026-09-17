@@ -133,6 +133,11 @@ Write 5-7 lines that function as an "elevator pitch": a concise, compelling intr
 
 *(Trim to 3-4 lines per the Page Budget below when used in an actual CV - these templates run slightly long as reusable starting points.)*
 
+**Exclusion: never mention the MSc in the profile statement.** Education (including the MSc Data Science and Society, Tilburg University) belongs only in the Education section - do not restate it in the summary/elevator pitch, even though the templates above include it as a legacy pattern. Update the templates above if reused.
+
+### Core Competencies / Skills Section Exclusion (Best Practice)
+**Never mention CI/CD, Git branching/PR review, or automated testing/linting (ruff, mypy, bandit) as a skills-section line item.** These are process/tooling details, not a competency employers screen for - if CI/CD ownership is worth mentioning at all, it belongs as a clause inside an experience bullet (e.g. "...introduced Git-based CI/CD along the way"), not as its own Technical Competencies entry.
+
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
 

@@ -10,6 +10,7 @@ Primary (Danish job market):
 - **karriere.dk** - IDA's job board (engineering/science roles)
 - **jobfinder.dk** - another major Danish job board
 - **akademikernes.dk** - academic union job board
+- **it-jobbank.dk** - IT-focused Danish job board
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters for known target companies
@@ -29,6 +30,9 @@ site:jobindex.dk "Data Engineer" Copenhagen OR Hillerød
 site:jobindex.dk "Python" "SQL" Copenhagen OR Hillerød
 site:linkedin.com/jobs "Data Scientist" Denmark
 site:linkedin.com/jobs "Data Engineer" Denmark
+site:it-jobbank.dk "Data Scientist"
+site:it-jobbank.dk "Data Engineer"
+site:it-jobbank.dk "Data Analyst"
 ```
 
 When running the live-browser search (not the WebSearch fallback), also run the Jobindex geography filter for Hillerød directly, e.g. `https://www.jobindex.dk/jobsoegning/hilleroed?q=data+scientist&lang=en` (mirror the `koebenhavn` pattern used for Copenhagen) - the Copenhagen geo-filter does not reliably include Hillerød postings even though it's in the same commute region.
@@ -43,14 +47,18 @@ site:jobindex.dk "BigQuery" OR "Dataform" Copenhagen
 site:linkedin.com/jobs "attribution" "data" Copenhagen Denmark
 ```
 
-### Priority 3: Analytics Engineer / BI Developer / ML Engineer
+### Priority 3: Analytics Engineer / BI Developer / BI Engineer / ML Engineer
 
 Adjacent roles that fit the "stay hands-on IC, broaden beyond one title" goal.
 
 ```
 site:jobindex.dk "Analytics Engineer" Copenhagen
-site:jobindex.dk "BI Developer" OR "BI Udvikler" Copenhagen
+site:jobindex.dk "BI Developer" OR "BI Udvikler" OR "Business Intelligence Engineer" Copenhagen
 site:jobindex.dk "Machine Learning Engineer" Copenhagen
+site:linkedin.com/jobs "Business Intelligence Engineer" Denmark
+site:linkedin.com/jobs "Machine Learning Engineer" Denmark
+site:it-jobbank.dk "Analytics Engineer" OR "BI Udvikler" OR "Business Intelligence Engineer"
+site:it-jobbank.dk "Machine Learning Engineer"
 ```
 
 ### Priority 4: Broader Technical / Consulting
