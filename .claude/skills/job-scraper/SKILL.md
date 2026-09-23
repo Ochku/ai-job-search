@@ -38,12 +38,17 @@ Optional arguments:
 
 ### Step 1: Search
 
-Run **WebSearch** queries from `search-queries.md`. By default, run the top 3 priority categories. If the user said "broad", run all categories.
+**Known limitation - `WebSearch` is stale, prefer live `WebFetch` for LinkedIn and TheHub (fixed 2026-09-17):** `WebSearch` returns results from Google's cached index of these sites, which lags real postings by days and misses same-day listings entirely (verified: a live fetch surfaced postings from 10-25 minutes ago that `WebSearch` didn't return at all). For LinkedIn and TheHub specifically, use `WebFetch` directly on the site's live search-results URL instead of `WebSearch` site-filtered queries:
+- LinkedIn: `WebFetch` on `https://www.linkedin.com/jobs/search/?keywords=<role>&location=Copenhagen%2C%20Denmark&f_TPR=r604800` (one fetch per role keyword: "Data Scientist", "Data Engineer", "Data Analyst", etc.), prompting for title/company/location/URL/posting-age for every listing on the page.
+- TheHub: `WebFetch` on `https://thehub.io/jobs?roles=engineer&roles=analyst&roles=datascience&countryCode=DK&sorting=mostPopular`, prompting for the same fields. TheHub aggregates Danish startup/scaleup jobs across engineer/analyst/data-science roles - a useful cross-check against Jobindex/LinkedIn since its listings often don't appear on either.
+- Jobindex.dk search-results pages are JS-rendered and don't expose listings to `WebFetch` (confirmed) - keep using `WebSearch` site-filtered queries for Jobindex, or the live-browser search noted in `search-queries.md` where available.
+- `karriere.dk`, `jobfinder.dk`, `akademikernes.dk`, `it-jobbank.dk` - `WebSearch` has not been confirmed stale for these; keep using it for now, but if a scrape run turns up suspiciously few results, spot-check with a live `WebFetch` the same way as LinkedIn/TheHub.
+
+Run queries from `search-queries.md` (via `WebSearch` for Jobindex-family sites, via live `WebFetch` for LinkedIn/TheHub as above). By default, run the top 3 priority categories. If the user said "broad", run all categories.
 
 If the user specified a focus area (e.g. "data science"), prioritize queries from that category.
 
 For each search:
-- Use `WebSearch` with site-specific queries (jobindex.dk, linkedin.com/jobs, karriere.dk, etc.)
 - Target your configured geographic area
 - Look for postings from the last 14 days
 

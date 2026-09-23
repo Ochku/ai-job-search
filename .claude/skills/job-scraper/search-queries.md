@@ -11,6 +11,7 @@ Primary (Danish job market):
 - **jobfinder.dk** - another major Danish job board
 - **akademikernes.dk** - academic union job board
 - **it-jobbank.dk** - IT-focused Danish job board
+- **thehub.io** - Danish/Nordic startup & scaleup job board, live search: `https://thehub.io/jobs?roles=engineer&roles=analyst&roles=datascience&countryCode=DK&sorting=mostPopular` - fetch this URL directly with `WebFetch` (see the staleness note in `SKILL.md` Step 1), don't rely on `WebSearch` for it
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters for known target companies
@@ -61,7 +62,18 @@ site:it-jobbank.dk "Analytics Engineer" OR "BI Udvikler" OR "Business Intelligen
 site:it-jobbank.dk "Machine Learning Engineer"
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 4: Business Analyst (data-leaning only)
+
+Only worth pursuing where the role is hands-on with data (SQL/dashboards/data-driven decision support), not pure process/requirements-gathering - screen out anything that reads as project-management/BA-in-name-only during triage.
+
+```
+site:jobindex.dk "Business Analyst" "SQL" Copenhagen OR Hovedstaden
+site:jobindex.dk "Data Business Analyst" OR "Business Intelligence Analyst" Copenhagen
+site:linkedin.com/jobs "Business Analyst" "data" Denmark
+site:it-jobbank.dk "Business Analyst"
+```
+
+### Priority 5: Broader Technical / Consulting
 
 Wider net for general technical roles that use the same core toolset.
 
