@@ -29,6 +29,12 @@ Rosmalen, North Brabant, Netherlands
 - Led cross-functional design and delivery of a company-wide data warehouse (coordinating with IT, the team's data analyst, and an external data engineer from The Data Story) to consolidate external and internal data behind consistent definitions and historical records; built structured landing/staging/mart tables in Google Dataform on a daily schedule, ingested via webhook and API connections from external platforms, and prioritized cross-departmental data needs through direct stakeholder negotiation
 - Built the data foundation for multi-touch attribution: gained access to marketing-platform APIs, built data dumps into Dataform mart tables, and constructed customer-journey tables with ROPO stitching for cross-device and online/offline measurement; co-developed a Markov-chain attribution model with an external consultant - working jointly through methodology and implementation rather than reviewing from the sidelines - set up the Vertex AI compute environment to run it, and presented resulting dashboards and modeling logic directly to marketing stakeholders
 - Identified and closed a blind spot in marketing measurement - roughly 50% of revenue is offline with no bridge to online behavior - by designing a ROPO (Research Online, Purchase Offline) model using Google Tag Manager first-party email capture matched to GA4 user_pseudo_id and cross-referenced against the appointment system and CDP; in the process, found and fixed a server-side tagging bug that was leaking internal traffic into the data, lifting captured online purchase event journeys from ~73% to ~85%, and linked 40% of monthly offline purchases (~€1.7M/month in revenue) to prior online behavior - unlocking lead-discovery, cross-channel product-index, and improved marketing-attribution use cases
+- Leading, and solely building all technical parts of, a production multi-agent AI system for Customer Service on Claude Managed Agents (repo `cs-skills`, live in Zendesk since 28 Sept 2026); handled 500+ tickets in its first 3 weeks, with quality metrics still being collected while development continues (early signs promising): a Zendesk trigger starts one session per ticket via a webhook to the Sessions API; a coordinator agent ("Dirigent", Claude Opus 5.5) reads the ticket through the Zendesk MCP server and delegates to five specialist sub-agents (payments, returns, order & delivery status, cancellations, service requests; Claude Sonnet 5), which operate Sawiday Admin, carrier track & trace and supplier portals through Browserbase browser tools and Python scripts, and return a fixed four-part report (sourced summary, attention points, draft customer reply, actions taken + recommended Zendesk action) that is written back to the ticket
+  - Division of work: Steff designed and built the whole harness (agent architecture, orchestration, MCP/tool/browser integrations, scripts, deployment pipeline, CLI, evals, safety); a Customer Service colleague wrote the domain content of the skills (the work-specific procedures), with Steff owning the skill framework they plug into
+  - 32 versioned Agent Skills (SKILL.md, in Dutch) encode CS procedures and policy (returns, refunds, service/warranty claims, supplier-specific routes, tone of voice) and load on demand; tool calling, MCP servers and sub-agent rosters are declared per agent in config-as-code
+  - GitOps control plane (built by Steff): agents, skills, environments and vaults live in git; PRs run validation, pytest and an `ant plan` comment, merges deploy via `ant apply` with approval and lockfiles pinning resource versions, and a nightly drift job pulls edits made in the Claude Console back into the repo as a PR - so the CS colleague can draft skills in the Console while git stays the source of truth; a self-built Python CLI (`cs`, uv-managed) handles validation, drift detection, pulling and catalog generation, with decision records (ADRs) and a Dutch handbook for the CS team lead
+  - Safety and rollout: an eval-gated autonomy ladder per intent (from internal-note drafts up to public replies), ticket text treated as untrusted input against prompt injection, destructive tools kept on always-ask, restricted sandbox networking, credentials in workspace-scoped vaults, and no customer data in git; eval suites and rubrics with data in BigQuery
+  - Context: this follows the earlier stalled Zendesk AI integration (see Junior role) - the project was rebuilt on Claude and taken into production
 
 ### Junior Data Scientist - Sawiday (April 2025 - June 2026)
 Rosmalen, North Brabant, Netherlands
@@ -107,12 +113,15 @@ Swolgen, Netherlands
 - E-commerce / marketplace data (Amazon, Sawiday)
 - Marketing measurement & attribution (MTA, incrementality testing, MMM, Markov-chain attribution modeling, ROPO analysis) (Sawiday)
 - Data warehouse design & ETL architecture (Google Dataform: landing/staging/mart layers) (Sawiday)
+- Production agentic AI / LLM systems: multi-agent orchestration (coordinator + specialist sub-agents), Agent Skills, MCP servers, tool calling, browser automation, eval-gated rollout, prompt-injection safeguards, GitOps deployment of agents (Sawiday)
 - Built and deployed multiple Cloud Run microservices (B2B lead-generation tool, PO-confirmation PDF/CSV extraction service, HR hour-registration anomaly-detection pipeline) (Sawiday)
 
 ### Software & Tools
 - Git / version control
 - n8n
 - Claude Code, Codex, Gemini
+- Claude Managed Agents / Claude API (Sessions API, Agent Skills, multi-agent), `ant` CLI, MCP (Zendesk MCP server), Browserbase, Zendesk (triggers, webhooks)
+- GitHub Actions (CI/CD, nightly drift sync)
 - Google Cloud Platform (BigQuery, Dataform, Vertex AI, Google Cloud Run)
 - AWS (Athena)
 - DBeaver (MySQL)
