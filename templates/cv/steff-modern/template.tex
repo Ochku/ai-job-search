@@ -1,0 +1,116 @@
+%%%%
+% Resume template "steff-modern": A4, single column, Carlito (Calibri-metric) sans serif,
+% blue section headings, grey dates, bold key numbers. Plain text only (no icon fonts) so ATS parsing stays clean.
+%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper, left=20mm, right=20mm, top=16mm, bottom=14mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Carlito}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+% Colors
+\definecolor{nameColor}{HTML}{1F1F1F}
+\definecolor{accent}{HTML}{1F4E79}     % headline and section headings
+\definecolor{subAccent}{HTML}{4A5D73}  % department / institution after the em dash
+\definecolor{muted}{HTML}{6B7280}      % dates, titles, contact line, sub-group labels
+\definecolor{ruleColor}{HTML}{BFC6D0}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.08}
+\raggedright
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% \cvheader{name}{headline}{contact line}
+\newcommand{\cvheader}[3]{%
+  {\fontsize{24}{28}\selectfont\bfseries\color{nameColor}#1\par}
+  \vspace{2pt}
+  {\large\color{accent}#2\par}
+  \vspace{3pt}
+  {\small\color{muted}#3\par}
+  \vspace{2pt}
+}
+
+\newcommand{\sep}{\unskip\enspace|\enspace\ignorespaces} % header separator
+\newcommand{\dotsep}{\unskip\ \textperiodcentered\ \ignorespaces} % inline separator
+
+% \MakeUppercase sits in the before-code so it only uppercases the title, not the rule's color name
+\titleformat{\section}{\color{accent}\bfseries\normalsize}{}{0em}{\MakeUppercase}[\vspace{1pt}{\color{ruleColor}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% \entry{Company}{Department or title}{dates}
+\newcommand{\entry}[3]{%
+  \vspace{3pt}
+  {\large\textbf{#1}}\ {\color{subAccent}\large\textbf{---\ #2}}\hfill{\color{muted}#3}\par
+}
+% Title line(s) under an entry
+\newcommand{\roles}[1]{{\color{muted}#1\par}}
+% Sub-group label inside one employer's bullets
+\newcommand{\subgroup}[1]{\vspace{1pt}{\color{muted}\itshape #1\par}}
+
+\setlist[itemize]{label=\textbullet, leftmargin=12pt, labelsep=5pt, itemsep=1pt, parsep=0pt, topsep=1pt}
+
+%===========%
+% CV body   %
+%===========%
+
+\begin{document}
+
+\cvheader{[YOUR_NAME]}{[HEADLINE: role type + focus, tailored to the posting]}{%
+  [LOCATION_OR_RELOCATION_NOTE]\sep
+  [YOUR_PHONE_WITH_TILDES_INSTEAD_OF_SPACES]\sep
+  \href{mailto:[YOUR_EMAIL]}{[YOUR_EMAIL]}\sep
+  \href{[YOUR_LINKEDIN_URL]}{[YOUR_LINKEDIN_DISPLAY]}%
+}
+
+\section{Profile}
+PLACEHOLDER - 2-3 line profile: who you are, the strongest proof point, the background. Tailored to the posting.
+
+\section{Experience}
+
+\entry{[COMPANY]}{[DEPARTMENT]}{[START] -- Present}
+\roles{[CURRENT TITLE] ([START] -- Present)\dotsep [PREVIOUS TITLE] ([START] -- [END])}
+
+\subgroup{[THEME OF THIS GROUP OF BULLETS]}
+\begin{itemize}
+  \item PLACEHOLDER - result-first bullet with the \textbf{key number} in bold
+  \item PLACEHOLDER - result-first bullet
+\end{itemize}
+
+\subgroup{[SECOND THEME]}
+\begin{itemize}
+  \item PLACEHOLDER - result-first bullet
+\end{itemize}
+
+\entry{[COMPANY]}{[TITLE]}{[START] -- [END]}
+\begin{itemize}
+  \item PLACEHOLDER - one tight bullet
+\end{itemize}
+
+\section{Skills}
+\begin{tabular}{@{}>{\bfseries}p{30mm}@{}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-30mm\relax}@{}}
+  CATEGORY 1 & [skills, using the posting's exact terms where truthful] \\
+  CATEGORY 2 & [skills] \\
+  Languages & [Language] ([level])\dotsep [Language] ([level]) \\
+\end{tabular}
+
+\section{Education}
+
+\entry{[DEGREE]}{[UNIVERSITY]}{[START] -- [END]}
+PLACEHOLDER - relevant courses; thesis topic.\par
+
+\entry{[DEGREE]}{[UNIVERSITY]}{[START] -- [END]}
+
+\section{Speaking}
+[EVENT], [CITY] {\color{muted}--- Talk: [TOPIC]}\hfill{\color{muted}[MONTH YEAR]}\par
+
+\end{document}

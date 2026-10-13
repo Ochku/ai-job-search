@@ -1,21 +1,29 @@
 # CV Templates and Tailoring Guide
 
 <!-- BEGIN ACTIVE-TEMPLATE (managed by /add-template - do not edit by hand) -->
-> **Active template override: `mikkel-template`**
+> **Active template override: `steff-ats`**
 >
 > A custom template is active. Where this block conflicts with the stock guidance below, this block wins. Structural advice below (tailoring, page-budget, cutting rules) still applies.
 >
-> - **Template skeleton:** `templates/cv/mikkel-template/template.tex` — use this as the structural reference instead of the stock template
-> - **Manifest:** `templates/cv/mikkel-template/TEMPLATE.md` — read this for style rules and known pitfalls before drafting
-> - **Compile with:** `lualatex` (not the engine named in the stock guidance below — though it also happens to be lualatex here)
-> - **Fonts:** CormorantGaramond + charter, both standard TeX-distribution font packages (no bundled files, no install needed on a full TeX distribution). Note: `template.tex` already patches font loading for engine compatibility (`luatex85` for `\pdfglyphtounicode`, `XCharter` via fontspec in place of `charter` under lualatex/xelatex) — do not remove those patches.
+> - **Template skeleton:** `templates/cv/steff-ats/template.tex` — use this as the structural reference instead of the stock template
+> - **Manifest:** `templates/cv/steff-ats/TEMPLATE.md` — read this for style rules and known pitfalls before drafting
+> - **Compile with:** `lualatex` (not the engine named in the stock guidance below)
+> - **Fonts:** CormorantGaramond + XCharter, standard TeX Live font packages (no bundled files, no icon fonts)
 > - **Page limit:** exactly 1 page
 > - **Output file:** unchanged (`cv/cv_<company>.tex`); no extra class/font files need to be copied to the output directory
 <!-- END ACTIVE-TEMPLATE -->
 
+> **Always produce two versions of every CV (user decision 2026-10-13).** Same content, two layouts:
+> 1. `cv/cv_<company>.tex` with the active template **`steff-ats`** (serif, plain single column, no headline - built for ATS parsing)
+> 2. `cv/cv_<company>_modern.tex` with **`steff-modern`** (`templates/cv/steff-modern/` - sans-serif Carlito, blue headline under the name, bold key numbers, skills table after Experience)
+>
+> Write the content once, then port it into the second layout. Compile, visually check and run the ATS text-layer checks on **both** PDFs; both must be exactly 1 page. Present both to the user. The modern version keeps a one-line headline; the ATS version does not.
+
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
 
-## Template: LaTeX moderncv (Banking Style)
+## Template: LaTeX moderncv (Banking Style) - legacy stock template
+
+> **Only applies when no ACTIVE-TEMPLATE override is set above.** With a custom template active (currently the 1-page `steff-ats`), skip this section's structure, color and `\cventry` advice; the tailoring, cutting and ATS guidance further down still applies.
 
 All CVs use the moderncv LaTeX package with the "banking" style and "blue" color scheme.
 
@@ -29,7 +37,7 @@ All CVs use the moderncv LaTeX package with the "banking" style and "blue" color
 cd cv && lualatex -interaction=nonstopmode cv_<company>.tex
 ```
 
-Expected output: `Output written on cv_<company>.pdf (2 pages, ...)`. Any page count other than 2 is a failure that must be fixed before presenting to the user.
+Expected output: `Output written on cv_<company>.pdf (N pages, ...)` where N is the active template's page limit (1 for `steff-ats`). Any other page count is a failure that must be fixed before presenting to the user.
 
 ## Document Structure
 
@@ -68,7 +76,7 @@ Expected output: `Output written on cv_<company>.pdf (2 pages, ...)`. Any page c
 \begin{document}
 \makecvtitle
 
-% 1. Profile statement (1-3 sentences, tailored per role)
+% 1. Profile statement (2-3 lines, tailored per role)
 % 2. Skills section
 % 3. Education section
 % 4. Professional Experience section
@@ -115,28 +123,17 @@ Two related patterns are fine and should be kept:
 
 ## Section-by-Section Tailoring
 
-### Profile Statement / Elevator Pitch (Best Practice)
-This is the most important section to customize. It appears right after `\makecvtitle`.
+### Header and Profile (Best Practice)
+**Header:** name, plain-text contact line, and a location line - **no headline/tagline under the name** (decided 2026-10-13). The location line answers relocation and work rights before a recruiter has to ask, e.g. "Horst, Netherlands · relocating to Copenhagen, Denmark". Never use icon fonts for contact details: the ATS reads their glyph names as words.
 
-Write 5-7 lines that function as an "elevator pitch": a concise, compelling introduction explaining why you're qualified for *this specific role*. Focus on what the employer gains from hiring you.
+**Profile:** a 2-3 line section directly under the header - Danish CVs usually have one, and it lets a recruiter place you in seconds. Structure: who you are in one clause (you may echo the posting's job title), the single strongest proof point, the background. Tailor it per posting.
 
-**Create 2-3 profile statement templates for your main role types:**
+> Example (AI roles): "Data scientist who builds and runs AI agents in production: sole engineer behind a multi-agent Customer Service system on Claude, with a background in data warehousing, API integrations and process automation."
 
-**For Data Scientist / ML roles:**
-> Data scientist with two years of hands-on experience building end-to-end pipelines, from consolidating fragmented data into a governed Google Dataform warehouse to modeling multi-touch marketing attribution and deploying production tools on Google Cloud Run. Built a Research-Online-Purchase-Offline (ROPO) model at Sawiday that linked 40% of monthly offline purchases (~€1.7M/month) back to online behavior, closing a blind spot across half the company's revenue. MSc Data Science and Society (Tilburg University), thesis benchmarking deep learning against state-of-the-art time series classifiers. Known for translating ambiguous business problems into technical solutions and communicating results clearly to non-technical stakeholders.
+**Exclusion: never mention the MSc in the profile.** Education belongs only in the Education section. Do not repeat numbers in the profile that the first bullet already carries if space is tight.
 
-**For Data Engineer roles:**
-> Data professional with hands-on ownership of a company-wide data warehouse build: designing landing/staging/mart layers in Google Dataform, ingesting data via API and webhook connections across marketing, ERP, HR, and support platforms, and automating delivery through Google Cloud Run. Migrated ad hoc credential storage and undocumented scripts into a version-controlled, CI/CD-driven workflow (Git branching, PR review, linting, `uv` package management) after becoming the sole technical owner of the data function. Background in Python, SQL, and cloud data infrastructure, paired with an MSc in Data Science and Society (Tilburg University) and prior experience building self-service reporting platforms as a financial analyst.
-
-**For Data Analyst roles:**
-> Analytically-driven data professional experienced in turning fragmented data sources into decision-ready insight: consolidated disparate product data into a KPI-driven best-seller dashboard, audited five overlapping product-recommendation systems to find that suggestions present in 7.7% of revenue caused only 0.38% of it, and built customer-journey models bridging online and offline purchase behavior. Background spans financial analysis (ING Belgium, Amazon) and data science (Sawiday, Philips Avent), with an MSc in Data Science and Society (Tilburg University). Comfortable presenting findings directly to business stakeholders and using data to challenge assumptions, not just confirm them.
-
-*(Trim to 3-4 lines per the Page Budget below when used in an actual CV - these templates run slightly long as reusable starting points.)*
-
-**Exclusion: never mention the MSc in the profile statement.** Education (including the MSc Data Science and Society, Tilburg University) belongs only in the Education section - do not restate it in the summary/elevator pitch, even though the templates above include it as a legacy pattern. Update the templates above if reused.
-
-### Core Competencies / Skills Section Exclusion (Best Practice)
-**Never mention CI/CD, Git branching/PR review, or automated testing/linting (ruff, mypy, bandit) as a skills-section line item.** These are process/tooling details, not a competency employers screen for - if CI/CD ownership is worth mentioning at all, it belongs as a clause inside an experience bullet (e.g. "...introduced Git-based CI/CD along the way"), not as its own Technical Competencies entry.
+### Skills Section Keyword Coverage (Best Practice)
+**List every tool the experience bullets mention**, including engineering tooling (Git, GitHub Actions CI/CD, pytest, uv, ruff, mypy), Dataform, n8n etc., in an "Engineering" or similar category. ATS keyword matching reads the skills section first; a tool that appears only inside a bullet is easy to miss. (This replaces the earlier rule that kept CI/CD and testing out of the skills section.)
 
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
@@ -176,29 +173,19 @@ If there is a gap in your employment history:
 
 After writing the CV and before presenting to the user, always compile and visually inspect the PDF. Iterate until the layout is clean. Workflow:
 
-1. Run `lualatex -interaction=nonstopmode cv_<company>.tex`
-2. Check the output page count: must be exactly 2
-3. Read the PDF via the Read tool and visually inspect both pages
-4. Check for **orphaned entries**: a `\cventry` title line must never sit alone at the bottom of page 1 with its bullets on page 2
+1. Run `lualatex -interaction=nonstopmode cv_<company>.tex` (on Linux, TeX Live needs `texlive-luatex texlive-latexextra texlive-fontsextra`; a "Font \TU/lmr ... not loadable" error in the log is harmless - Latin Modern is loaded by fontspec before XCharter replaces it - and goes away with `texlive-fontsrecommended`)
+2. Check the output page count: must match the active template's limit (**exactly 1 page** for `steff-ats`)
+3. Read the PDF via the Read tool and visually inspect it
+4. Check for **overlaps and cramped spots** (the common failures of the tight 1-page template):
+   - Elements touching or overlapping (headings, rules, bullets) - see the active template's `TEMPLATE.md` pitfalls for template-specific fixes
+   - Header text layer: `pdftotext` must show plain name, phone, email and LinkedIn - no icon names
+   - Bullets ending in a single orphaned word on their last line: reword to save the line - each one is a full line of page budget
 
-### Fixing common page-break problems
+**Problem: spills to page 2**
+Cut content using relevance-weighted cutting (below). Do not shrink margins, `\linespread`, `itemsep` or section spacing back down: those values were set on 2026-10-13 because the original values looked cramped. Rewording bullets that end in one or two words on their last line is usually the cheapest saving.
 
-**Problem: entry title on page 1, bullets orphaned to page 2**
-Add `\needspace{5\baselineskip}` immediately before the problematic `\cventry`:
-```latex
-\needspace{5\baselineskip}
-\item{\cventry{YEAR--YEAR}{Role Title}{Organization}{Location}{}{...}}
-```
-Include `\usepackage{needspace}` in the preamble.
-
-**Problem: one trailing section spills to page 3 (e.g., References alone on page 3)**
-Add `\enlargethispage{2-3\baselineskip}` before a late section (e.g., before `\section{Honors and Awards}`) to stretch page 2 by a few lines. This is the standard LaTeX rescue for near-miss overflows.
-
-**Problem: 3 pages with significant content on page 3**
-Cut content — do not compress geometry or `\vspace`. See "Relevance-weighted cutting" below for the rule.
-
-**Problem: content finishes early on page 2 (feels thin)**
-Restore the highest-relevance item that was previously cut — a CV that ends mid-page 2 looks incomplete.
+**Problem: content finishes early (bottom quarter of the page empty)**
+Restore the highest-relevance item that was previously cut - a 1-page CV ending well short of the page looks thin.
 
 ## ATS Parseability
 
@@ -217,21 +204,20 @@ What to check in the extraction:
 - **Reading order.** The stock banking style is single-column, so extraction order matches visual order. Custom templates (via `/add-template`) with sidebars or multi-column layouts can interleave unrelated lines; if extraction order is scrambled, the user is trading ATS compatibility for looks and should be told.
 - **Keyword coverage.** Match the posting's required/preferred terms against the extracted text, in the posting's language. Prefer the posting's exact term over a synonym when it is truthfully applicable - ATS matching is often literal. Never add a keyword the profile does not support.
 
-## Page Budget - Hard 2-Page Limit
+## Page Budget
 
-The CV **must** fit on exactly 2 pages when compiled. Use these content limits as a guide:
+The page limit comes from the active template (see the ACTIVE-TEMPLATE block at the top - currently **exactly 1 page**). Guide for the 1-page template:
 
 | Section | Max budget |
 |---------|-----------|
-| Profile statement | 3-4 lines |
-| Skills | 5 items, each 1-2 lines |
-| Most recent role | 4-5 bullets |
-| Previous role | 2-3 bullets |
-| Older roles | 2 bullets (1 line each) |
-| Education | 2-3 entries |
-| Publications | 2-3 entries |
-| Awards | 3 entries, single line each |
-| References | "Available upon request." (single line) |
+| Header | name + contact line + location line |
+| Profile | 2-3 lines |
+| Technical Skills | 4-6 single-line categories (one column) |
+| Most recent role | 6-8 bullets in 2 themed sub-groups, 1-3 lines each, result first |
+| Previous roles | 1 bullet each, ideally 1 line |
+| Education | 2 entries |
+| Speaking | 1 line |
+| Languages | 1 line |
 
 **If in doubt, cut rather than squeeze.** Reducing `\vspace` or geometry scale to force-fit content makes the CV look cramped.
 
@@ -250,7 +236,7 @@ Cut the lowest-total-score line first, regardless of which section it sits in.
 ### Practical order of cuts (easiest → last resort)
 
 1. **Redundancy.** If an achievement appears in both Core Competencies AND a role bullet, the Core Competencies version is usually the cleaner cut (the experience bullet is more concrete evidence).
-2. **Profile-statement fluff.** A sentence that just restates what Publications or Skills will show. ("Peer-reviewed publications on X..." is already a Publications entry — profile can claim it once and stop.)
+2. **Profile padding.** A profile clause that only restates the first bullet. Keep the profile to 2 lines when space is tight.
 3. **Low-relevance experience bullets.** A bullet about work that does not touch posting keywords, wherever it sits. This cuts across sections before touching the structural list.
 4. **Low-relevance supporting content.** An older-role bullet that does not speak to the target role. A certification that does not touch the posting's stack. A language entry that can be condensed to one line.
 5. **Low-relevance publications.** Keep 1-2 publications that best match the posting. Cut the rest before touching experience bullets.
@@ -260,25 +246,8 @@ Cut the lowest-total-score line first, regardless of which section it sits in.
 
 - Do not mechanically cut from the bottom of a static section list without checking relevance. "Cut the oldest role first" is wrong if that role is literally about the skill the posting asks for.
 - Do not cut the one concrete example the cover letter leans on. Relevance is measured against the cover letter you wrote, not just the job posting — interviewers will have read both.
-- Do not cut to fit if the fit is borderline (2.02 pages). Prefer `\enlargethispage{2-3\baselineskip}` on a late section for near-misses; reserve content cuts for genuine overflow (content on page 3 that is more than a single trailing section).
+- For a near-miss (one or two lines over), first reword bullets that end in an orphaned word; only then cut a low-relevance line.
 
 ## Recommended Section Order
 
-The section order varies by role type:
-
-**For technical / data science / ML roles:**
-1. Profile statement / elevator pitch
-2. Core competencies / Skills
-3. Professional Experience (reverse chronological)
-4. Education (reverse chronological)
-5. Languages
-6. Publications & Awards
-7. References
-
-**For domain-specific / specialist roles:**
-1. Profile statement / elevator pitch
-2. Core competencies / Skills
-3. Education (reverse chronological) - credentials are a key qualifier
-4. Professional Experience (reverse chronological)
-5. Publications & Awards
-6. References
+Follow the active template's order: Header (no headline) -> Profile -> Technical Skills -> Experience -> Education -> Speaking -> Languages. No References section ("available upon request" is assumed).

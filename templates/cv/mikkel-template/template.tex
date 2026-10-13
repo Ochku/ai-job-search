@@ -66,12 +66,15 @@
 \addtolength{\topmargin}{-0.7in}
 \addtolength{\textheight}{1.4in}
 
-\setlength{\multicolsep}{-3.0pt}
+\setlength{\multicolsep}{3.0pt} % positive gap: a negative value lets the taller skills column overlap the next section heading
 \setlength{\columnsep}{-1pt}
 \setlength{\tabcolsep}{0pt}
 \setlength{\footskip}{3.7pt}
 \raggedbottom
 \raggedright
+
+% Line spacing: slightly above default so dense bullets stay readable
+\linespread{1.08}
 
 % ATS Readability
 \input{glyphtounicode}
@@ -85,7 +88,7 @@
 % Usage: \documentTitle{Name}{Details}
 \newcommand{\documentTitle}[2]{
   \begin{center}
-    {\Huge\scshape\color{accentTitle} #1}
+    {\Huge\scshape\color{accentTitle} #1\par} % \par applies \Huge line spacing to multi-line titles
     \vspace{10pt}
     {\color{accentLine} \hrule}
     \vspace{2pt}
@@ -113,7 +116,7 @@
 % Section heading with horizontal rule
 % Usage: \section{Title}
 \titleformat{\section}{
-  \vspace{-5pt}
+  \vspace{2pt}
   \color{accentText}
   \scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{accentLine}\titlerule]
@@ -154,7 +157,7 @@
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
   \vspace{-7pt}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+  \begin{itemize}[itemsep=2pt, parsep=1pt, leftmargin=30pt]
 }{
   \end{itemize}
   %\vspace{-2pt}
@@ -201,22 +204,13 @@
       %\raisebox{-0.15\height} \faGithub\ github.com}
   }
 
-  %---------%
-  % Summary %
-  %---------%
-
-  \begin{justify}
-  \tinysection{Summary}
-    [YOUR_SUMMARY]
-
-    \end{justify}
   %--------%
   % Skills %
   %--------%
 
   \section{Technical Competencies}
   \begin{multicols}{2}
-    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=-2px, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=1pt, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
       \item[\textbf{[SKILL_CATEGORY_1]:}] [SKILL_LIST_1]
       \item[\textbf{[SKILL_CATEGORY_2]:}] [SKILL_LIST_2]
       \item[\textbf{[SKILL_CATEGORY_3]:}] [SKILL_LIST_3]

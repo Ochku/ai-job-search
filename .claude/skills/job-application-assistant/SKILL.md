@@ -27,8 +27,8 @@ When the user provides a job posting (URL or text), follow this workflow:
 ### Step 2: Tailor CV
 - Read the most relevant existing CV variant from `cv/` as a starting point
 - Follow the guidelines in `05-cv-templates.md`
-- Create `cv/cv_<company>.tex` with tailored content
-- Adjust: profile statement, skills section, experience bullet emphasis, section order
+- Create the CV in both formats: `cv/cv_<company>.tex` (`steff-ats`) and `cv/cv_<company>_modern.tex` (`steff-modern`), same tailored content
+- Adjust: profile (2-3 lines), skills section, experience bullet emphasis and sub-groups (no headline under the name)
 
 ### Step 3: Write Cover Letter
 - Follow the writing style rules in `03-writing-style.md` (critical: no em-dashes, no cliches)

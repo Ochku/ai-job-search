@@ -1,8 +1,7 @@
 %%%%
-% MTecknology's Resume
-%%%%
-% Author: Michael Lustfield
-% License: CC-BY-4
+% Resume template (adapted from MTecknology's Resume)
+% Original author: Michael Lustfield
+% Original license: CC-BY-4
 % - https://creativecommons.org/licenses/by/4.0/legalcode.txt
 %%%%
 
@@ -15,6 +14,10 @@
 
 % Dependencies
 % NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage{iftex}
+\ifluatex
+  \usepackage{luatex85} % restores pdfTeX primitives (\pdfglyphtounicode etc.) needed below
+\fi
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -34,7 +37,11 @@
 
 % Serif
 \usepackage{CormorantGaramond}
-\usepackage{charter}
+\ifpdftex
+  \usepackage{charter}
+\else
+  \setmainfont{XCharter} % OpenType Charter equivalent; CormorantGaramond forces fontspec's TU encoding, where the classic `charter` package silently falls back to Latin Modern
+\fi
 
 % Colors
 % Use with \color{Name}
@@ -59,12 +66,15 @@
 \addtolength{\topmargin}{-0.7in}
 \addtolength{\textheight}{1.4in}
 
-\setlength{\multicolsep}{-3.0pt}
+\setlength{\multicolsep}{3.0pt} % positive gap: a negative value lets the taller skills column overlap the next section heading
 \setlength{\columnsep}{-1pt}
 \setlength{\tabcolsep}{0pt}
 \setlength{\footskip}{3.7pt}
 \raggedbottom
 \raggedright
+
+% Line spacing: slightly above default so dense bullets stay readable
+\linespread{1.08}
 
 % ATS Readability
 \input{glyphtounicode}
@@ -78,7 +88,7 @@
 % Usage: \documentTitle{Name}{Details}
 \newcommand{\documentTitle}[2]{
   \begin{center}
-    {\Huge\scshape\color{accentTitle} #1}
+    {\Huge\scshape\color{accentTitle} #1\par} % \par applies \Huge line spacing to multi-line titles
     \vspace{10pt}
     {\color{accentLine} \hrule}
     \vspace{2pt}
@@ -106,7 +116,7 @@
 % Section heading with horizontal rule
 % Usage: \section{Title}
 \titleformat{\section}{
-  \vspace{-5pt}
+  \vspace{2pt}
   \color{accentText}
   \scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{accentLine}\titlerule]
@@ -147,7 +157,7 @@
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
   \vspace{-7pt}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+  \begin{itemize}[itemsep=2pt, parsep=1pt, leftmargin=30pt]
 }{
   \end{itemize}
   %\vspace{-2pt}
@@ -178,7 +188,7 @@
   % Heading %
   %---------%
 
-  \documentTitle{MSc in Data Science with background\\\vspace{5pt} in International Business and Finance}{
+  \documentTitle{MSc in Data Science with background\\ in International Business and Finance}{
     % Web Version
     %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
     %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
@@ -194,22 +204,13 @@
       %\raisebox{-0.15\height} \faGithub\ github.com}
   }
 
-  %---------%
-  % Summary %
-  %---------%
-
-  \begin{justify}
-  \tinysection{Summary}
-    Graduated with distinction from Tilburg University specialized in Data Science combined with a strong background in finance and business. Passionate about leveraging AI and machine learning to drive data-driven decision-making and solve real-world challenges. Experienced in implementing algorithms using both toolkits and self-developed code, bridging the gap between technology and business objectives.
-    
-    \end{justify}
   %--------%
   % Skills %
   %--------%
 
   \section{Technical Competencies}
   \begin{multicols}{2}
-    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=-2px, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+    \begin{itemize}[left=0pt, labelwidth=2em, labelsep=0.5em, align=left, itemsep=1pt, parsep=1pt]%[itemsep=-2px, parsep=1pt, leftmargin=75pt]
       \item[\textbf{Languages:}] Python, SQL, Git 
       \item[\textbf{Deep Learning:}] PyTorch, TensorFlow, \newline HuggingFace Transformers.
       \item[\textbf{Other tools:}] Numpy, Scikit-Learn, Scikit-time, Aeon, Matplotlib, Seaborn, BeautifulSoup.
