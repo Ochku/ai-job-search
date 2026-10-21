@@ -15,9 +15,16 @@
 
 > **Always produce two versions of every CV (user decision 2026-10-13).** Same content, two layouts:
 > 1. `cv/cv_<company>.tex` with the active template **`steff-ats`** (serif, plain single column, no headline - built for ATS parsing)
-> 2. `cv/cv_<company>_modern.tex` with **`steff-modern`** (`templates/cv/steff-modern/` - sans-serif Carlito, blue headline under the name, bold key numbers, skills table after Experience)
+> 2. `cv/cv_<company>_modern.tex` with **`steff-modern`** (`templates/cv/steff-modern/` - sans-serif Carlito, blue headline under the name, skills table after Experience)
 >
 > Write the content once, then port it into the second layout. Compile, visually check and run the ATS text-layer checks on **both** PDFs; both must be exactly 1 page. Present both to the user. The modern version keeps a one-line headline; the ATS version does not.
+
+> **Start every new CV from a master CV (decided 2026-10-19, DE track added 2026-10-20).** Three stable, reviewed masters exist, each in both layouts:
+> - **AI / agents track** (applied AI, agent engineering, Python engineering roles): `cv/cv_master_ai.tex` + `cv/cv_master_ai_modern.tex`
+> - **DS / measurement track** (data scientist, analytics, marketing measurement): `cv/cv_master_ds.tex` + `cv/cv_master_ds_modern.tex`
+> - **DE / Google-stack track** (data/analytics engineering, preferably GCP/BigQuery/Dataform or roles that match the profile well; Azure/dbt/Databricks-heavy postings are a weak fit): `cv/cv_master_de.tex` + `cv/cv_master_de_modern.tex`
+>
+> Copy the closer master to `cv/cv_<company>.tex` / `cv/cv_<company>_modern.tex` and **tweak, don't rewrite**: retune the profile (and modern headline), reorder or swap 1-3 bullets, and tighten skills toward the posting's exact terms. The career story (titles, dates, core achievements and their numbers) stays the same across applications. If a posting needs a better phrasing of a shared bullet, update the master too.
 
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
 
@@ -124,7 +131,7 @@ Two related patterns are fine and should be kept:
 ## Section-by-Section Tailoring
 
 ### Header and Profile (Best Practice)
-**Header:** name, plain-text contact line, and a location line - **no headline/tagline under the name** (decided 2026-10-13). The location line answers relocation and work rights before a recruiter has to ask, e.g. "Horst, Netherlands · relocating to Copenhagen, Denmark". Never use icon fonts for contact details: the ATS reads their glyph names as words.
+**Header:** name, plain-text contact line, and a location line - **no headline/tagline under the name** (decided 2026-10-13). The location line answers relocation and work rights before a recruiter has to ask: "Horst, Netherlands · relocating to Copenhagen, Denmark · EU citizen, no work permit needed · 1 month's notice". Danish screeners often drop non-local candidates on reflex, so never leave the work-rights part out. Never use icon fonts for contact details: the ATS reads their glyph names as words.
 
 **Profile:** a 2-3 line section directly under the header - Danish CVs usually have one, and it lets a recruiter place you in seconds. Structure: who you are in one clause (you may echo the posting's job title), the single strongest proof point, the background. Tailor it per posting.
 
@@ -133,7 +140,9 @@ Two related patterns are fine and should be kept:
 **Exclusion: never mention the MSc in the profile.** Education belongs only in the Education section. Do not repeat numbers in the profile that the first bullet already carries if space is tight.
 
 ### Skills Section Keyword Coverage (Best Practice)
-**List every tool the experience bullets mention**, including engineering tooling (Git, GitHub Actions CI/CD, pytest, uv, ruff, mypy), Dataform, n8n etc., in an "Engineering" or similar category. ATS keyword matching reads the skills section first; a tool that appears only inside a bullet is easy to miss. (This replaces the earlier rule that kept CI/CD and testing out of the skills section.)
+**List the tools and techniques a recruiter or ATS would search for**, including the engineering tooling the bullets mention (Git, GitHub Actions CI/CD, pytest, uv, Docker), Dataform, n8n etc., in an "Engineering" or similar category. ATS keyword matching reads the skills section first; a tool that appears only inside a bullet is easy to miss.
+
+**Only list what sets the candidate apart (user decision 2026-10-19).** The skills section shows real tools and specialist skills, not the standard toolbox every Python developer has. Never list: standard Python libraries (pandas, NumPy, scikit-learn, Pydantic, Loguru), testing/lint/packaging tools (pytest, ruff, mypy, black, uv), practices ("type annotations", "PR review", "context management"), or Power BI. Claude API and Claude Code are one item: write "Claude" (optionally "Claude (Managed Agents, Skills, Claude Code)"). Python, SQL, Git, CI/CD and Docker go together on one "Core" line. Spend the space on differentiators: Managed Agents/MCP/multi-agent systems, eval-gated rollout and prompt-injection defence, Zendesk/Browserbase integration, Dataform warehouse, multi-touch attribution / MMM / incrementality / ROPO, server-side tagging. 4-6 categories, each one line; a row that wraps by one or two words should be trimmed until it fits.
 
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
@@ -149,6 +158,16 @@ List **5-7 key competencies** in bullet format, tailored to the specific job. Fo
 - Rewrite bullet points to emphasize aspects most relevant to the target role
 - Use 4-6 bullets for most recent role, 3-4 for previous, 2-3 for older
 - **Emphasize measurable results** where possible: "Reduced processing time by X%", "Model adopted by the team"
+
+### Bullet wording rules (from the 2026-10-19 CV review)
+- **Outcome over mechanism.** Each bullet answers "so what?": a number, an adoption, a decision it changed. Implementation detail only earns a place when it is the keyword the posting asks for
+- **Write for a recruiter, not a reviewer of the repo.** No internal names or tool-specific jargon ("Console drift sync", "autonomy ladder", "`ant apply`", "Dirigent"); say what it does in plain words ("edits made in the web console sync back to Git each night")
+- **Avoid product-name collisions.** "Managed agent context" reads like Anthropic's *Managed Agents* product - pick wording that can't be confused with a product name
+- **Vary the opening verb.** Never three bullets in a row starting with the same verb (Built / Built / Built). Alternatives: Designed, Shipped, Turned, Set up, Automated, Led, Introduced, Found and fixed, Audited
+- **Never bold text inside bullets** - no bold numbers or phrases to highlight impact (user decision 2026-10-19). Bold is only for structural labels: company names, skill-category labels
+- **Consistency:** "Present" (capitalised) everywhere; numerals for counts and durations ("3 weeks", "3 months"); "customer service" lower case unless it is a team name
+- **Titles:** never "Medior" on a CV - "Data Scientist (promoted from Junior Data Scientist, Jun 2026)"
+- **Degrees:** HAN is "Bachelor of Business Administration (BBA), International Business" (modern layout: "BBA International Business, Finance") - never "BSc"
 
 ### Handling Employment Gaps (Best Practice)
 If there is a gap in your employment history:

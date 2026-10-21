@@ -66,7 +66,7 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
 
 - **High match**: Role directly involves your core skills
 - **Medium match**: Role is adjacent to your experience
-- **Low match**: Role requires significant skills you lack
+- **Low match**: Role requires significant skills you lack (a "Senior"/"Lead" title alone is not a reason - senior roles are in scope; only a stated 6+ years requirement counts against fit)
 
 ### Step 4: Deduplicate & Store
 

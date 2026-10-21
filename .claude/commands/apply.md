@@ -69,7 +69,7 @@ Also read the most recent existing CV and cover letter files for concrete struct
 - Header without a headline (name, plain-text contact line, location/relocation line); tailor the 2-3 line profile and the experience bullets to the role
 - Reframe skills and achievements to match job requirements
 - Keep to the template's page limit (exactly 1 page)
-- Write the content once, then port it into `templates/cv/steff-modern/` as `cv_<company>_modern.tex` (adds a one-line headline and bold key numbers; see its `TEMPLATE.md`). Compile, inspect and ATS-check both
+- Write the content once, then port it into `templates/cv/steff-modern/` as `cv_<company>_modern.tex` (adds a one-line headline; never bold inside bullets; see its `TEMPLATE.md`). Compile, inspect and ATS-check both
 
 ### Cover Letter (`cover_letters/cover_<company>_<role>.tex`)
 - **Match the language of the job posting** (Danish posting -> Danish cover letter, English posting -> English cover letter)

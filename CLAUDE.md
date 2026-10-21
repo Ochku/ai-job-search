@@ -18,7 +18,8 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 ### Identity
 - **Name:** Steff Vleeshouwers
 - **Location:** Horst, Limburg, Netherlands (relocating to Copenhagen, Denmark to be with partner - open to full relocation)
-- **Languages:** Dutch (native), English (fluent), German (B2), Danish (B1)
+- **Languages:** Dutch (native), English (fluent), German (B2), Danish (B1 - social level; not ready for Danish as working language)
+- **Work rights:** EU citizen, no Danish work permit needed; 1 month's notice
 - **Status:** Employed (Medior Data Scientist, Sawiday) - actively job-searching
 - **LinkedIn headline:** "Passionate about leveraging data-driven insights and cutting-edge technology"
 
@@ -27,13 +28,13 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - **MSc Data Science and Society** (Feb 2024 - Feb 2025) - Tilburg University
   - Thesis: "Music Genre Classification Using Time Series Classifiers: A Comparative Study Between Convolutional Neural Networks, HIVE-COTE 2.0, and MultiRocket+Hydra" (grade 7.5, judicium "met genoegen")
   - Topics: Machine Learning, Deep Learning, NLP, Data Mining, Data Science Regulation & Law, Business Intelligence, Statistics & Methodology
-- **HBO Bachelor International Business** (major Finance) (Sept 2019 - July 2023) - HAN International School of Business
+- **Bachelor of Business Administration (BBA), International Business** (HBO, major Finance; never "BSc" on CVs) (Sept 2019 - July 2023) - HAN International School of Business
   - Topics: Finance, International Economics, Accounting & Financial Reporting, Supply Chain Management, Data & Information Management
 - Full details incl. Pre-Master and Mbo: see `.claude/skills/job-application-assistant/01-candidate-profile.md`
 
 ### Professional Experience
 <!-- List your roles, most recent first -->
-- **Medior Data Scientist** (June 2026 - Present) - **Sawiday** (Rosmalen, North Brabant, Netherlands)
+- **Medior Data Scientist** (June 2026 - Present; on CVs write "Data Scientist (promoted from Junior Data Scientist, Jun 2026)" - "Medior" is not understood in Denmark) - **Sawiday** (Rosmalen, North Brabant, Netherlands)
   - Led delivery of a company-wide data warehouse (Google Dataform landing/staging/mart layers) consolidating external and internal data behind consistent definitions
   - Built the data foundation for multi-touch attribution and co-developed a Markov-chain attribution model with an external consultant
   - Designed a Research-Online-Purchase-Offline (ROPO) model linking 40% of monthly offline purchases (~€1.7M/month) back to online behavior, closing a blind spot across roughly half the company's revenue
@@ -94,7 +95,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 ## Workflow for New Job Applications
 1. User provides a job posting (URL or text)
 2. **Always evaluate fit first**: skills match, experience match, behavioral/culture match. Present this assessment to the user before proceeding.
-3. If good fit: create targeted CV in **both** formats - `cv/cv_<company>.tex` (`steff-ats` template) and `cv/cv_<company>_modern.tex` (`steff-modern` template), same content - and a cover letter (`cover_letters/cover_<company>_<role>.tex`)
+3. If good fit: start from the closer master CV (`cv/cv_master_ai*.tex` for AI/agent roles, `cv/cv_master_ds*.tex` for DS/measurement roles, `cv/cv_master_de*.tex` for Google-stack data engineering - see `05-cv-templates.md`), tweak rather than rewrite, and create targeted CV in **both** formats - `cv/cv_<company>.tex` (`steff-ats` template) and `cv/cv_<company>_modern.tex` (`steff-modern` template), same content - and a cover letter (`cover_letters/cover_<company>_<role>.tex`)
 4. **Verify both documents** (see Verification Checklist below)
 5. Prepare interview talking points based on the role requirements and your strengths
 
