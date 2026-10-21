@@ -63,13 +63,13 @@ Also read the most recent existing CV and cover letter files for concrete struct
 - Read any existing `cv/cv_*.tex` file as a LaTeX template reference
 - Read any existing `cover_letters/cover_*.tex` or `cover_letters/Cover_*.tex` file as a template reference
 
-### CV - two versions: `cv/cv_<company>.tex` (`steff-ats`) and `cv/cv_<company>_modern.tex` (`steff-modern`)
+### CV: `cv/cv_<company>.tex` (`steff-modern`)
 - Always in **English**
-- Follow the active template in `05-cv-templates.md` (currently the 1-page `steff-ats`; read its `TEMPLATE.md`)
+- Follow the active template in `05-cv-templates.md` (currently the 1-page `steff-modern`; read its `TEMPLATE.md`)
 - Header without a headline (name, plain-text contact line, location/relocation line); tailor the 2-3 line profile and the experience bullets to the role
 - Reframe skills and achievements to match job requirements
 - Keep to the template's page limit (exactly 1 page)
-- Write the content once, then port it into `templates/cv/steff-modern/` as `cv_<company>_modern.tex` (adds a one-line headline; never bold inside bullets; see its `TEMPLATE.md`). Compile, inspect and ATS-check both
+- Start from the closest master (`cv/cv_master_ai|ds|de.tex`); never bold inside bullets. Compile, inspect and ATS-check it
 
 ### Cover Letter (`cover_letters/cover_<company>_<role>.tex`)
 - **Match the language of the job posting** (Danish posting -> Danish cover letter, English posting -> English cover letter)
@@ -183,7 +183,7 @@ After all edits are applied, the two files on disk are the final drafts.
 ### 5a. Compile
 
 ```bash
-cd cv && lualatex -interaction=nonstopmode cv_<company>.tex && lualatex -interaction=nonstopmode cv_<company>_modern.tex
+cd cv && lualatex -interaction=nonstopmode cv_<company>.tex
 cd ../cover_letters && xelatex -interaction=nonstopmode cover_<company>_<role>.tex
 ```
 
@@ -196,8 +196,8 @@ If either compile fails, fix the error and re-compile until clean.
 
 Read both PDFs via the Read tool and verify:
 
-**CV (both `cv/cv_<company>.pdf` and `cv/cv_<company>_modern.pdf`):**
-- [ ] Exactly the active template's page limit (1 page for `steff-ats`)
+**CV (`cv/cv_<company>.pdf`):**
+- [ ] Exactly the active template's page limit (1 page for `steff-modern`)
 - [ ] No overlaps: skills columns, section headings, rules and bullets do not touch (see the overlap checks in `05-cv-templates.md`). This is the most common failure of the tight 1-page layout.
 - [ ] No bullet ends with a single orphaned word on its last line
 - [ ] No awkward whitespace gaps, and the page is not ending a quarter empty
@@ -227,7 +227,7 @@ An ATS parser reads the PDF's embedded **text layer**, not the rendered page —
 **1. Extract the text layer:**
 
 ```bash
-cd cv && pdftotext -layout cv_<company>.pdf cv_<company>.txt && pdftotext -layout cv_<company>_modern.pdf cv_<company>_modern.txt
+cd cv && pdftotext -layout cv_<company>.pdf cv_<company>.txt
 ```
 
 Read the `.txt` file.
@@ -276,8 +276,7 @@ Summarize 3-5 key decisions made to tailor the application:
 
 ### Files Created
 List the files written:
-- `cv/cv_<company>.tex` (steff-ats)
-- `cv/cv_<company>_modern.tex` (steff-modern)
+- `cv/cv_<company>.tex` (steff-modern)
 - `cover_letters/cover_<company>_<role>.tex`
 
 Tell the user: "All files are ready for your review. Open them to check the final output before compiling."

@@ -1,36 +1,32 @@
 # CV Templates and Tailoring Guide
 
 <!-- BEGIN ACTIVE-TEMPLATE (managed by /add-template - do not edit by hand) -->
-> **Active template override: `steff-ats`**
+> **Active template override: `steff-modern`** (single CV format since 2026-10-21)
 >
 > A custom template is active. Where this block conflicts with the stock guidance below, this block wins. Structural advice below (tailoring, page-budget, cutting rules) still applies.
 >
-> - **Template skeleton:** `templates/cv/steff-ats/template.tex` — use this as the structural reference instead of the stock template
-> - **Manifest:** `templates/cv/steff-ats/TEMPLATE.md` — read this for style rules and known pitfalls before drafting
-> - **Compile with:** `lualatex` (not the engine named in the stock guidance below)
-> - **Fonts:** CormorantGaramond + XCharter, standard TeX Live font packages (no bundled files, no icon fonts)
+> - **Template skeleton:** `templates/cv/steff-modern/template.tex`
+> - **Manifest:** `templates/cv/steff-modern/TEMPLATE.md` — read this for style rules and known pitfalls before drafting
+> - **Compile with:** `lualatex`
+> - **Fonts:** Carlito, standard TeX Live font (no bundled files, no icon fonts)
 > - **Page limit:** exactly 1 page
-> - **Output file:** unchanged (`cv/cv_<company>.tex`); no extra class/font files need to be copied to the output directory
+> - **Output file:** `cv/cv_<company>.tex` (no `_modern` suffix)
 <!-- END ACTIVE-TEMPLATE -->
 
-> **Always produce two versions of every CV (user decision 2026-10-13).** Same content, two layouts:
-> 1. `cv/cv_<company>.tex` with the active template **`steff-ats`** (serif, plain single column, no headline - built for ATS parsing)
-> 2. `cv/cv_<company>_modern.tex` with **`steff-modern`** (`templates/cv/steff-modern/` - sans-serif Carlito, blue headline under the name, skills table after Experience)
->
-> Write the content once, then port it into the second layout. Compile, visually check and run the ATS text-layer checks on **both** PDFs; both must be exactly 1 page. Present both to the user. The modern version keeps a one-line headline; the ATS version does not.
+> **One CV per application (user decision 2026-10-21).** Only the `steff-modern` layout is produced, saved as `cv/cv_<company>.tex`. The `steff-ats` template is retired: don't create ATS versions anymore (older applications' files stay as the record of what was sent; the ATS masters are archived in `cv/archive_ats/`). `steff-modern` is plain-text single-column too, so the ATS text-layer checks still apply to it.
 
-> **Start every new CV from a master CV (decided 2026-10-19, DE track added 2026-10-20).** Three stable, reviewed masters exist, each in both layouts:
-> - **AI / agents track** (applied AI, agent engineering, Python engineering roles): `cv/cv_master_ai.tex` + `cv/cv_master_ai_modern.tex`
-> - **DS / measurement track** (data scientist, analytics, marketing measurement): `cv/cv_master_ds.tex` + `cv/cv_master_ds_modern.tex`
-> - **DE / Google-stack track** (data/analytics engineering, preferably GCP/BigQuery/Dataform or roles that match the profile well; Azure/dbt/Databricks-heavy postings are a weak fit): `cv/cv_master_de.tex` + `cv/cv_master_de_modern.tex`
+> **Start every new CV from a master CV (decided 2026-10-19, DE track added 2026-10-20).** Three stable, reviewed masters exist:
+> - **AI / agents track** (applied AI, agent engineering, Python engineering roles): `cv/cv_master_ai.tex`
+> - **DS / measurement track** (data scientist, analytics, marketing measurement): `cv/cv_master_ds.tex`
+> - **DE / Google-stack track** (data/analytics engineering, preferably GCP/BigQuery/Dataform or roles that match the profile well; Azure/dbt/Databricks-heavy postings are a weak fit): `cv/cv_master_de.tex`
 >
-> Copy the closer master to `cv/cv_<company>.tex` / `cv/cv_<company>_modern.tex` and **tweak, don't rewrite**: retune the profile (and modern headline), reorder or swap 1-3 bullets, and tighten skills toward the posting's exact terms. The career story (titles, dates, core achievements and their numbers) stays the same across applications. If a posting needs a better phrasing of a shared bullet, update the master too.
+> Copy the closer master to `cv/cv_<company>.tex` and **tweak, don't rewrite**: retune the headline and profile, reorder or swap 1-3 bullets, and tighten skills toward the posting's exact terms. The career story (titles, dates, core achievements and their numbers) stays the same across applications. If a posting needs a better phrasing of a shared bullet, update the master too.
 
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
 
 ## Template: LaTeX moderncv (Banking Style) - legacy stock template
 
-> **Only applies when no ACTIVE-TEMPLATE override is set above.** With a custom template active (currently the 1-page `steff-ats`), skip this section's structure, color and `\cventry` advice; the tailoring, cutting and ATS guidance further down still applies.
+> **Only applies when no ACTIVE-TEMPLATE override is set above.** With a custom template active (currently the 1-page `steff-modern`), skip this section's structure, color and `\cventry` advice; the tailoring, cutting and ATS guidance further down still applies.
 
 All CVs use the moderncv LaTeX package with the "banking" style and "blue" color scheme.
 
@@ -44,7 +40,7 @@ All CVs use the moderncv LaTeX package with the "banking" style and "blue" color
 cd cv && lualatex -interaction=nonstopmode cv_<company>.tex
 ```
 
-Expected output: `Output written on cv_<company>.pdf (N pages, ...)` where N is the active template's page limit (1 for `steff-ats`). Any other page count is a failure that must be fixed before presenting to the user.
+Expected output: `Output written on cv_<company>.pdf (N pages, ...)` where N is the active template's page limit (1 for `steff-modern`). Any other page count is a failure that must be fixed before presenting to the user.
 
 ## Document Structure
 
@@ -193,7 +189,7 @@ If there is a gap in your employment history:
 After writing the CV and before presenting to the user, always compile and visually inspect the PDF. Iterate until the layout is clean. Workflow:
 
 1. Run `lualatex -interaction=nonstopmode cv_<company>.tex` (on Linux, TeX Live needs `texlive-luatex texlive-latexextra texlive-fontsextra`; a "Font \TU/lmr ... not loadable" error in the log is harmless - Latin Modern is loaded by fontspec before XCharter replaces it - and goes away with `texlive-fontsrecommended`)
-2. Check the output page count: must match the active template's limit (**exactly 1 page** for `steff-ats`)
+2. Check the output page count: must match the active template's limit (**exactly 1 page** for `steff-modern`)
 3. Read the PDF via the Read tool and visually inspect it
 4. Check for **overlaps and cramped spots** (the common failures of the tight 1-page template):
    - Elements touching or overlapping (headings, rules, bullets) - see the active template's `TEMPLATE.md` pitfalls for template-specific fixes

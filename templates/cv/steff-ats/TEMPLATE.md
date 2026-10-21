@@ -1,5 +1,7 @@
 # Template: steff-ats
 
+> **Retired 2026-10-21** - no longer produced for new applications; `steff-modern` is the only CV format. Kept for the record of earlier applications.
+
 - **Type:** CV
 - **Engine:** lualatex
 - **Page limit:** 1 page
